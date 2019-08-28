@@ -3,15 +3,35 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="960px" height="560px" viewBox="0 0 960 560" enable-background="new 0 0 960 560" xml:space="preserve">
-<text transform="matrix(1 0 0 1 163.979 137.3037)"><tspan x="0" y="0" font-family="'TimesNewRomanPSMT'" font-size="21">POST    /chapter17/user.html    HTTP/1.1</tspan><tspan x="0" y="25.2" font-family="'TimesNewRomanPSMT'" font-size="21">Accept: image/jpeg, application/x-ms-application, ..., */*</tspan><tspan x="0" y="50.4" font-family="'TimesNewRomanPSMT'" font-size="21">Referer: http://localhost:8088/chapter17/user/register.html?code=100&amp;time=123</tspan><tspan x="0" y="75.6" font-family="'TimesNewRomanPSMT'" font-size="21">Accept-Language: zh-CN</tspan><tspan x="0" y="100.8" font-family="'TimesNewRomanPSMT'" font-size="21">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; )</tspan><tspan x="0" y="126" font-family="'TimesNewRomanPSMT'" font-size="21">Content-Type: application/x-www-form-urlencoded</tspan><tspan x="0" y="151.2" font-family="'TimesNewRomanPSMT'" font-size="21">Host:localhost:8088</tspan><tspan x="0" y="176.4" font-family="'TimesNewRomanPSMT'" font-size="21">Content-Length: 112</tspan><tspan x="0" y="201.6" font-family="'TimesNewRomanPSMT'" font-size="21">Connection: Keep-Alive</tspan><tspan x="0" y="226.8" font-family="'TimesNewRomanPSMT'" font-size="21">Cache-Control: no-cache</tspan><tspan x="0" y="252" font-family="'TimesNewRomanPSMT'" font-size="21">Cookie: JSESSIONID=24DF2688E37EE4F66D9669D2542AC17B</tspan><tspan x="0" y="302.4" font-family="'TimesNewRomanPSMT'" font-size="21">name=tom&amp;password=1234&amp;realName=tomson</tspan></text>
-<line fill="#0000FF" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="162" y1="143" x2="214" y2="143"/>
-<line fill="#0000FF" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="232" y1="143" x2="412" y2="143"/>
-<line fill="#0000FF" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="429" y1="143" x2="511" y2="143"/>
-<line fill="none" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="156" y1="388" x2="156" y2="148"/>
-<line fill="none" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="156" y1="445" x2="156" y2="425"/>
-<text transform="matrix(1 0 0 1 163.979 109.9502)"><tspan x="0" y="0" fill="#0000FF" font-family="'TimesNewRomanPSMT'" font-size="21">1</tspan><tspan x="10.5" y="0" fill="#0000FF" font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21">方法</tspan></text>
-<text transform="matrix(1 0 0 1 232.4971 109.9502)"><tspan x="0" y="0" fill="#0000FF" font-family="'TimesNewRomanPSMT'" font-size="21">2</tspan><tspan x="10.5" y="0" fill="#0000FF" font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21">请求URL</tspan></text>
-<text transform="matrix(1 0 0 1 429.4971 109.9502)"><tspan x="0" y="0" fill="#0000FF" font-family="'TimesNewRomanPSMT'" font-size="21">3</tspan><tspan x="10.5" y="0" fill="#0000FF" font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21">HTTP协议及版本</tspan></text>
-<text transform="matrix(1 0 0 1 128.5122 147.5303)" fill="#0000FF" font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21" glyph-orientation-vertical="0" writing-mode="tb">4报头文</text>
-<text transform="matrix(1 0 0 1 128.5122 424.5303)" fill="#0000FF" font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21" glyph-orientation-vertical="0" writing-mode="tb">5报文体</text>
+<text transform="matrix(1 0 0 1 140.9954 134.3064)" fill="#EE0000" font-family="'TimesNewRomanPSMT'" font-size="21">POST</text>
+<text transform="matrix(1 0 0 1 192.3474 134.3064)" font-family="'TimesNewRomanPSMT'" font-size="21">    </text>
+<text transform="matrix(1 0 0 1 213.3474 134.3064)" fill="#EECC00" font-family="'TimesNewRomanPSMT'" font-size="21">/chapter17/user.html</text>
+<text transform="matrix(1 0 0 1 386.5457 134.3064)" font-family="'TimesNewRomanPSMT'" font-size="21">    </text>
+<text transform="matrix(1 0 0 1 407.5457 134.3064)" fill="#CCCC00" font-family="'TimesNewRomanPSMT'" font-size="21">HTTP/1.1</text>
+<text transform="matrix(1 0 0 1 140.9954 159.5066)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Accept: image/jpeg, application/x-ms-application, ..., */*</text>
+<text transform="matrix(1 0 0 1 140.9954 184.7068)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Referer: http://localhost:8088/chapter17/user/register.html?code=100&amp;time=123</text>
+<text transform="matrix(1 0 0 1 140.9954 209.907)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Accept-Language: zh-CN</text>
+<text transform="matrix(1 0 0 1 140.9954 235.1072)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; )</text>
+<text transform="matrix(1 0 0 1 140.9954 260.3064)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Content-Type: application/x-www-form-urlencoded</text>
+<text transform="matrix(1 0 0 1 140.9954 285.5061)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Host:localhost:8088</text>
+<text transform="matrix(1 0 0 1 140.9954 310.7073)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Content-Length: 112</text>
+<text transform="matrix(1 0 0 1 140.9954 335.9065)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Connection: Keep-Alive</text>
+<text transform="matrix(1 0 0 1 140.9954 361.1077)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Cache-Control: no-cache</text>
+<text transform="matrix(1 0 0 1 140.9954 386.3069)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Cookie: JSESSIONID=24DF2688E37EE4F66D9669D2542AC17B</text>
+<text transform="matrix(1 0 0 1 140.9954 436.7073)" fill="#00EE00" font-family="'TimesNewRomanPSMT'" font-size="21">name=tom&amp;password=1234&amp;realName=tomson</text>
+<line display="none" fill="none" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="162" y1="143" x2="214" y2="143"/>
+<line display="none" fill="none" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="232" y1="143" x2="412" y2="143"/>
+<line display="none" fill="none" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="429" y1="143" x2="511" y2="143"/>
+<line display="none" fill="none" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="156" y1="388" x2="156" y2="148"/>
+<line display="none" fill="none" stroke="#0000FF" stroke-width="2" stroke-miterlimit="10" x1="156" y1="445" x2="156" y2="425"/>
+<text transform="matrix(1 0 0 1 163.9792 109.9495)" display="none" fill="#0000FF" enable-background="new    " font-family="'TimesNewRomanPSMT'" font-size="21">1</text>
+<text transform="matrix(1 0 0 1 174.4792 109.1321)" display="none" fill="#0000FF" enable-background="new    " font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21">方法</text>
+<text transform="matrix(1 0 0 1 232.4978 109.9495)" display="none" fill="#0000FF" enable-background="new    " font-family="'TimesNewRomanPSMT'" font-size="21">2</text>
+<text transform="matrix(1 0 0 1 242.9978 109.1321)" display="none" fill="#0000FF" enable-background="new    " font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21">请求URL</text>
+<text transform="matrix(1 0 0 1 429.4978 109.9495)" display="none" fill="#0000FF" enable-background="new    " font-family="'TimesNewRomanPSMT'" font-size="21">3</text>
+<text transform="matrix(1 0 0 1 439.9978 109.9495)" display="none" fill="#0000FF" enable-background="new    " font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21">HTTP协议及版本</text>
+<text transform="matrix(1 0 0 1 124.2151 147.5305)" display="none" fill="#0000FF" enable-background="new    " font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21">4</text>
+<text transform="matrix(1 0 0 1 128.5129 157.2327)" display="none" fill="#0000FF" enable-background="new    " font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21" glyph-orientation-vertical="0" writing-mode="tb">报头文</text>
+<text transform="matrix(1 0 0 1 124.2151 424.5305)" fill="#0000FF" font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21">5</text>
+<text transform="matrix(1 0 0 1 128.5129 434.2327)" display="none" fill="#0000FF" enable-background="new    " font-family="'AdobeSongStd-Light-GBpc-EUC-H'" font-size="21" glyph-orientation-vertical="0" writing-mode="tb">报文体</text>
 </svg>
