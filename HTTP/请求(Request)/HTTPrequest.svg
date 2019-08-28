@@ -4,8 +4,8 @@
 <svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="800px" height="400px" viewBox="0 0 800 400" enable-background="new 0 0 800 400" xml:space="preserve">
 <text transform="matrix(1 0 0 1 60 55)" fill="#EE0000" font-family="'TimesNewRomanPSMT'" font-size="21">POST</text>
-<text transform="matrix(1 0 0 1 130 55)" fill="#EECC00" font-family="'TimesNewRomanPSMT'" font-size="21">/chapter17/user.html</text>
-<text transform="matrix(1 0 0 1 320 55)" fill="#CCCC00" font-family="'TimesNewRomanPSMT'" font-size="21">HTTP/1.1</text>
+<text transform="matrix(1 0 0 1 160 55)" fill="#EECC00" font-family="'TimesNewRomanPSMT'" font-size="21">/chapter17/user.html</text>
+<text transform="matrix(1 0 0 1 360 55)" fill="#CCCC00" font-family="'TimesNewRomanPSMT'" font-size="21">HTTP/1.1</text>
 <text transform="matrix(1 0 0 1 60 80)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Accept: image/jpeg, application/x-ms-application, ..., */*</text>
 <text transform="matrix(1 0 0 1 60 105)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Referer: http://localhost:8088/chapter17/user/register.html?code=100&amp;time=123</text>
 <text transform="matrix(1 0 0 1 60 130)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Accept-Language: zh-CN</text>
