@@ -1,2 +1,2 @@
-# PreparationDocument
-Related knowledge points
+# 一些约定
+    前端菜鸡互啄
