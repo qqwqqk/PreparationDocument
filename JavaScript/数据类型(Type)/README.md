@@ -9,18 +9,18 @@ symbol - 如果变量是 symbol 类型的
 
 ## 数字(Number)
 JavaScript只有一个数字类型，以64位浮点数进行表示。
-···JavaScript
+```JavaScript
 console.log(1 === 1.0 )  \\true 
 console.log(100 === 1e2) \\true
-···
+```
 
-···JavaScript
+```JavaScript
 var num = 1;
 console.log(typeof(num)) \\number
-···
+```
 
 ## 字符串（String）
 JavaScript每个字符都是16位，但没有字符类型而是用字符串进行表示。
-···JavaScript
+```JavaScript
 console.log('c'+'a'+'t' === 'cat') \\true
-···
+```
