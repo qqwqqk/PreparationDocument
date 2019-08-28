@@ -3,19 +3,19 @@
 ## 请求报文
 HTTP请求报文由三部分组成：请求行，请求头，请求体
 
-<span style="color:#EE0000">POST</span>    <span style="color:#EECC00">/chapter17/user.html</span>    <span style="color:#CCCC00">HTTP/1.1</span>
-<span style="color:#39C5BB">Accept: image/jpeg, application/x-ms-application, ..., */*</span>
-<span style="color:#39C5BB">Referer: http://localhost:8088/chapter17/user/register.html?code=100&amp;time=123</span>
-<span style="color:#39C5BB">Accept-Language: zh-CN</span>
-<span style="color:#39C5BB">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; )</span>
-<span style="color:#39C5BB">Content-Type: application/x-www-form-urlencoded</span>
-<span style="color:#39C5BB">Host:localhost:8088</span>
-<span style="color:#39C5BB">Content-Length: 112</span>
-<span style="color:#39C5BB">Connection: Keep-Alive</span>
-<span style="color:#39C5BB">Cache-Control: no-cache</span>
-<span style="color:#39C5BB">Cookie: JSESSIONID=24DF2688E37EE4F66D9669D2542AC17B</span>
-<br/>
-<span style="color:#00EE00">name=tom&amp;password=1234&amp;realName=tomson</span>
+    <span style="color:#EE0000">POST</span>    <span style="color:#EECC00">/chapter17/user.html</span>    <span style="color:#CCCC00">HTTP/1.1</span>
+    <span style="color:#39C5BB">Accept: image/jpeg, application/x-ms-application, ..., */*</span>
+    <span style="color:#39C5BB">Referer: http://localhost:8088/chapter17/user/register.html?code=100&amp;time=123</span>
+    <span style="color:#39C5BB">Accept-Language: zh-CN</span>
+    <span style="color:#39C5BB">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; )</span>
+    <span style="color:#39C5BB">Content-Type: application/x-www-form-urlencoded</span>
+    <span style="color:#39C5BB">Host:localhost:8088</span>
+    <span style="color:#39C5BB">Content-Length: 112</span>
+    <span style="color:#39C5BB">Connection: Keep-Alive</span>
+    <span style="color:#39C5BB">Cache-Control: no-cache</span>
+    <span style="color:#39C5BB">Cookie: JSESSIONID=24DF2688E37EE4F66D9669D2542AC17B</span>
+    <br/>
+    <span style="color:#00EE00">name=tom&amp;password=1234&amp;realName=tomson</span>
     
 * 请求行：
     * <span style="color:#EE0000">请求方法</span>: HTTP/1.1 定义的请求方法有8种：GET、POST、PUT、DELETE、PATCH、HEAD、OPTIONS、TRACE。最常的两种GET和POST，如果是RESTful接口的话一般会用到GET、POST、DELETE、PUT。
