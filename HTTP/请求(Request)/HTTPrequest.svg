@@ -2,21 +2,17 @@
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="800px" height="400px" viewBox="80 80 800 400" enable-background="new 80 80 800 400" xml:space="preserve">
-<g>
-	<text transform="matrix(1 0 0 1 140.9958 134.3059)" fill="#EE0000" font-family="'TimesNewRomanPSMT'" font-size="21">POST</text>
-	<text transform="matrix(1 0 0 1 213.3474 134.3059)" fill="#EECC00" font-family="'TimesNewRomanPSMT'" font-size="21">/chapter17/user.html</text>
-	<text transform="matrix(1 0 0 1 407.5461 134.3059)" fill="#CCCC00" font-family="'TimesNewRomanPSMT'" font-size="21">HTTP/1.1</text>
-	<text transform="matrix(1 0 0 1 140.9958 159.5061)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Accept: image/jpeg, application/x-ms-application, ..., */*</text>
-	<text transform="matrix(1 0 0 1 140.9958 184.7063)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Referer: http://localhost:8088/chapter17/user/register.html?code=100&amp;time=123</text>
-	<text transform="matrix(1 0 0 1 140.9958 209.9065)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Accept-Language: zh-CN</text>
-	<text transform="matrix(1 0 0 1 140.9958 235.1067)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; )</text>
-	<text transform="matrix(1 0 0 1 140.9958 260.3059)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Content-Type: application/x-www-form-urlencoded</text>
-	<text transform="matrix(1 0 0 1 140.9958 285.5061)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Host:localhost:8088</text>
-	<text transform="matrix(1 0 0 1 140.9958 310.7073)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Content-Length: 112</text>
-	<text transform="matrix(1 0 0 1 140.9958 335.9065)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Connection: Keep-Alive</text>
-	<text transform="matrix(1 0 0 1 140.9958 361.1077)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Cache-Control: no-cache</text>
-	<text transform="matrix(1 0 0 1 140.9958 386.3069)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Cookie: JSESSIONID=24DF2688E37EE4F66D9669D2542AC17B</text>
-	<text transform="matrix(1 0 0 1 140.9958 436.7073)" fill="#00EE00" font-family="'TimesNewRomanPSMT'" font-size="21">name=tom&amp;password=1234&amp;realName=tomson</text>
-</g>
+	 width="800px" height="400px" viewBox="0 0 800 400" enable-background="new 0 0 800 400" xml:space="preserve">
+<text transform="matrix(1 0 0 1 60.9954 54.3059)" enable-background="new    "><tspan x="0" y="0" fill="#EE0000" font-family="'TimesNewRomanPSMT'" font-size="21">POST    </tspan><tspan x="72.352" y="0" fill="#EECC00" font-family="'TimesNewRomanPSMT'" font-size="21">/chapter17/user.html    </tspan><tspan x="266.55" y="0" fill="#CCCC00" font-family="'TimesNewRomanPSMT'" font-size="21">HTTP/1.1</tspan></text>
+<text transform="matrix(1 0 0 1 60.9954 79.5061)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Accept: image/jpeg, application/x-ms-application, ..., */*</text>
+<text transform="matrix(1 0 0 1 60.9954 104.7063)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Referer: http://localhost:8088/chapter17/user/register.html?code=100&amp;time=123</text>
+<text transform="matrix(1 0 0 1 60.9954 129.9065)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Accept-Language: zh-CN</text>
+<text transform="matrix(1 0 0 1 60.9954 155.1067)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">User-Agent: Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; )</text>
+<text transform="matrix(1 0 0 1 60.9954 180.3059)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Content-Type: application/x-www-form-urlencoded</text>
+<text transform="matrix(1 0 0 1 60.9954 205.5061)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Host:localhost:8088</text>
+<text transform="matrix(1 0 0 1 60.9954 230.7073)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Content-Length: 112</text>
+<text transform="matrix(1 0 0 1 60.9954 255.9065)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Connection: Keep-Alive</text>
+<text transform="matrix(1 0 0 1 60.9954 281.1077)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Cache-Control: no-cache</text>
+<text transform="matrix(1 0 0 1 60.9954 306.3069)" fill="#39C5BB" font-family="'TimesNewRomanPSMT'" font-size="21">Cookie: JSESSIONID=24DF2688E37EE4F66D9669D2542AC17B</text>
+<text transform="matrix(1 0 0 1 60.9954 356.7073)" fill="#00EE00" font-family="'TimesNewRomanPSMT'" font-size="21">name=tom&amp;password=1234&amp;realName=tomson</text>
 </svg>
