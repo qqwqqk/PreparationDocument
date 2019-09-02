@@ -1,6 +1,6 @@
 # JavaScript 常用函数
 
-## 1.数组扁平化
+* 1.数组扁平化
 ```JavaScript
 function flatten(arr){
   var res = [];
@@ -15,14 +15,14 @@ function flatten(arr){
 }
 ```
 
-## 2.对象判空
+* 2.对象判空
 ```JavaScript
 function isEmpty(obj){
   return Object.keys(obj).length == 0;
 }
 ```
 
-## 3.对象深度拷贝
+* 3.对象深度拷贝
 ```JavaScript
 function deepClone(obj) {
   var _obj = JSON.stringify(obj),
