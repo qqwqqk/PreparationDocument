@@ -15,8 +15,13 @@ for(let i=0; i<5; i++){
   setTimeout(()=>{console.log(i)},0);
 };
 
-//闭包输出： 0 1 2 3 4 
+//立即执行函数输出： 0 1 2 3 4 
 for(var i=0; i<5; i++){
   ((i)=>{ setTimeout(()=>{ console.log(i) }, 0); })(i);
+};
+
+////闭包输出： 0 1 2 3 4 
+for(var i=0; i<5; i++){
+  (()=>{ var _i=i; setTimeout(()=>{ console.log(_i) }, 0); })();
 };
 ```
