@@ -180,6 +180,15 @@ getCurrentPosition()方法用来获得用户的位置。
 >localStorage - 没有时间限制的数据存储
 >sessionStorage - 针对一个 session 的数据存储
 
+* 与 cookie 的对比
+|-|cookie|sessionStorage|localStorage|
+|-|-|-|-|
+|生命周期|setMaxAge() (default：当前会话)|仅在当前会话下有效(同浏览器窗口)|生命周期永久|
+|存储大小|4K左右|5M或更大|5M或更大|
+|存储位置|浏览器端|浏览器端|浏览器端|
+|与服务器通信|携带在HTTP头中|不参与服务器通信|不参与服务器通信|
+|易用性|需自己封装API|可以使用原生接口|可以使用原生接口|
+
 ## HTML5 应用程序缓存
 * 什么是应用程序缓存(Application Cache)?
 >HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。
