@@ -135,3 +135,47 @@ eval("2+3")	        // 返回 5
 var myeval = eval;	// 可能会抛出 EvalError 异常
 myeval("2+3");	    // 可能会抛出 EvalError 异常
 ```
+
+## Object.defineProperty() 与 Proxy()
+>Object.defineProperty() 语法
+```JavaScript
+Object.defineProperty(obj, prop, descriptor)
+// obj：必需。目标对象
+// prop：必需。需定义或修改的属性的名字
+// descriptor：必需。目标属性所拥有的特性
+```
+|属性|默认值|	说明|
+|-|-|-|
+|enumerable	|false|	描述属性是否可以被for...in或Object.keys枚举 |
+|configurable	|false|	描述属性是否可以被删除 |
+|writable	|false|	描述属性是否可以修改 |
+|value	|undefined|	属性值 |
+|get	|undefined	|当访问属性时触发该方法 |
+|set|	undefined	|当属性被修改时触发该方法 |
+
+>>数据描述符
+```JavaScript
+let obj = {}
+Object.defineProperty(obj, "name", {
+  enumerable: false,      //是可选值，不选的话默认值为false，
+  configurable: false,    //是可选值，不选的话默认值为false，
+  writable: false,
+  value: "Tom"
+});
+```
+
+>>存取描述符
+```JavaScript
+let obj = {};
+let newVal;
+Object.defineProperty(obj, "name", {
+  enumerable: false,      //是可选值，不选的话默认值为false，
+  configurable: false,    //是可选值，不选的话默认值为false，
+  get: function(){
+    return newVal;
+  },
+  set: function(newValue){
+    newVal= newValue;
+  },
+});
+```
