@@ -15,6 +15,9 @@
 >>box-sizing:border-box,表示的是IE盒子模型;
 >>box-sizing:padding-box,这个属性值的宽度为 padding-left + width + padding-right
 
+## background-color 填充区域
+background-color 的填充区域包含元素的content,padding,border区域。
+
 ## 绘制 0.5px 的线
 >直接设置 0.5px
 ```CSS
@@ -48,4 +51,37 @@
 >设置 viewport
 ``` HTML
 <meta name="viewport" content="width=device-width, initial-sacle=0.5">
+```
+
+## 绘制三角型
+>实心三角型
+```CSS
+.test{
+  width: 0;
+  height: 0;
+  border-width: 0 50px 50px 50px;
+  border-style: solid;
+  border-color: transparent transparent #66CCFF  transparent;
+}
+```
+>箭头
+```CSS
+.test {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-width: 0 50px 50px 50px;
+  border-style: solid;
+  border-color: transparent transparent #66CCFF transparent;
+}
+.test:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -49px;
+  left: -50px;
+  border-width: 50px;
+  border-style: solid;
+  border-color: transparent transparent #FFFFFF transparent;
+}
 ```

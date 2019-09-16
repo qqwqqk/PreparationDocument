@@ -1,6 +1,6 @@
 # CSS 布局相关
 
-## Flex布局
+## Flex 布局
 >Flex 是 Flexible Box 的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
 >任何一个容器都可以指定为 Flex 布局。
 >行内元素也可以使用 Flex 布局。
@@ -47,6 +47,201 @@
 |flex-basis|auto| 定义元素占位长度（余下部分计算剩余空间）， 默认值为全元素|
 |flex| 0 1 auto | flex-grow, flex-shrink 和 flex-basis的简写|
 |align-self| auto |允许元素存在与其他元素不一样的对齐方式，可覆盖align-items属性|
+
+## 经典三栏布局方案
+1. float布局
+```HTML
+<style>
+  .left {
+    float: left;
+    width: 100px;
+    height: 200px;
+  }
+  .right {
+    float: right;
+    width: 100px;
+    height: 200px;
+  }
+  .main {
+    height: 200px;
+    margin-left: 120px;
+    margin-right: 120px;
+  }
+</style>
+    
+<div class="container">
+  <div class="left"></div>
+  <div class="main"></div>
+  <div class="right"></div>
+</div>
+```
+
+2. BFC 规则
+```HTML
+<style>
+  .left {
+    float: left;
+    width: 100px;
+    height: 200px;
+  }
+  .right {
+    float: right;
+    width: 100px;
+    height: 200px;
+  }
+  .main {
+    height: 200px;
+    overflow: hidden;
+  }
+</style>
+    
+<div class="container">
+  <div class="left"></div>
+  <div class="main"></div>
+  <div class="right"></div>
+</div>
+```
+
+3. 圣杯布局
+```HTML
+<style>
+  .left {
+    float: left;
+    width: 100px;
+    height: 200px;
+    margin-left: -100%;
+    position: relative;
+    left: -100px;
+  }
+  .right {
+    float: left;
+    width: 100px;
+    height: 200px;
+    margin-left: -100px;
+    position: relative;
+    left: -100px;
+  }
+  .main {
+    float: left;
+    width: 100%;
+    height: 200px;
+  }
+  .container{
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+</style>
+    
+<div class="container">
+  <div class="left"></div>
+  <div class="main"></div>
+  <div class="right"></div>
+</div>
+```
+
+4. 双飞翼布局
+```HTML
+<style>
+  .left {
+    float: left;
+    width: 100px;
+    height: 200px;
+    margin-left: -100%;
+  }
+  .right {
+    float: left;
+    width: 100px;
+    height: 200px;
+    margin-left: -100px;
+  }
+  .main {
+    float: left;
+    width: 100%;
+    height: 200px;
+  }
+  .main::after{
+    display: block;
+    content: '';
+    height: 0;
+    font-size: 0;
+    clear: both;
+    zoom: 1;
+  }
+  .content{
+    height:200px;
+    margin: 0 110px;
+  }
+</style>
+    
+<div class="container">
+  <div class="left"></div>
+  <div class="main">
+    <div class="content"></div>
+  </div>
+  <div class="right"></div>
+</div>
+```
+
+5. flex 布局
+```HTML
+<style>
+  .left {
+    height: 200px;
+    order: -1;
+    flex: 0 1 200px;
+  }
+  .right {
+    height: 200px;
+    order: 1;
+    flex: 0 1 200px;
+  }
+  .main {
+    height: 200px;
+    order: 0;
+    flex-grow: 1;
+  }
+  .container{
+    display: flex;
+    flex-direction: row;
+  }
+</style>
+    
+<div class="container">
+  <div class="left"></div>
+  <div class="main"></div>
+  <div class="right"></div>
+</div>
+```
+
+5. 绝对定位
+```HTML
+<style>
+  .left {
+    position: absolute;
+    left: 0;
+    width: 100px;
+    height: 200px;
+  }
+  .right {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 200px;
+  }
+  .main {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    height: 200px;
+  }
+</style>
+    
+<div class="container">
+  <div class="left"></div>
+  <div class="main"></div>
+  <div class="right"></div>
+</div>
+```
 
 ## CSS多列布局
 ```CSS

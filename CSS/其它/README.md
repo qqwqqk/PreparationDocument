@@ -18,6 +18,31 @@
 |样式权重|高|低|
 |DOM可控|JavaScript控制页面样式时能使用link|不可以通过DOM控制|
 
+## CSS 预处理器
+>Less
+>>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
+>>Less 可以运行在 Node 或浏览器端。
+>Sass
+>>Sass（Syntactically Awesome Stylesheet）是一个CSS预处理器，有助于减少CSS的重复，节省时间。 它是更稳定和强大的CSS扩展语言描述文档的风格结构。
+
+## CSS 自定义
+CSS中原生的变量定义语法是：--*， 变量使用语法是var(--*),其中*表示我们的变量名称。
+```CSS
+:root{
+  --theme-color:#39C5BB;
+}
+.theme1{
+  background: var(--theme-color);
+}
+.theme2{
+  background: var(--theme-color);
+}
+```
+使用JavaScript中的setProperty() 方法用于设置一个新的 CSS 属性，或修改 CSS 声明块中已存在的属性。
+```JavaScript
+  document.body.style.setProperty('--theme-color',"#66CCFF");
+```
+
 ## CSS 单位（尺寸）
 | 单位|描述 |
 |-|-|
@@ -29,6 +54,13 @@
 |pt|磅|
 |pc|12点|
 |px|像素|
+
+## calc 属性
+>calc() 函数用于动态计算长度值。
+>>需要注意的是，运算符前后都需要保留一个空格，例如：width: calc(100% - 10px)；
+>>任何长度值都可以使用calc()函数进行计算；
+>>calc()函数支持 "+", "-", "*", "/" 运算；
+>>calc()函数使用标准的数学运算优先级规则；
 
 ## CSS 优先级
 >Rule 1: 最近的祖先样式比其他祖先样式优先级高。
