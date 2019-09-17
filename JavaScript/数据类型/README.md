@@ -37,3 +37,31 @@ console.log('c'+'a'+'t' === 'cat') //true
   1.基础类型存放于栈中，而引用类型存放于堆中；
   2.js中不允许直接访问保存在堆内存中的对象，所以在访问一个对象时，首先得到这个对象在堆内存中的地址，然后在按照这个地址去获取对象中的值，这就是按引用访问，基础类型则可以直接访问到
   3.参数传递的不同（实参复制给形参的过程），首先我们知道所有函数都是按值来传递的，传参不同也就是内存分配不同的原因，当我们把变量赋值给参数的时候，参数的改变和变量没有关系，当我们把引用类型传递给参数的时候，此时我们传递的是引用类型的地址，所有当参数在函数内部改变的时候，会出现修改了函数外面值的情况
+
+## == 、=== 和 Object.is()
+
+```JavaScript
+var a1 = 3;
+var b1 = "3";
+console.log(a1 == b1);            // true
+console.log(a1 === b1);           // true
+console.log(Object.is(a1,b1));    // true
+
+var a2 = -0;
+var b2 = +0;
+console.log(a2 == b2);            // true
+console.log(a2 === b2);           // true
+console.log(Object.is(a2,b2));    // false
+
+var a3 = NaN;
+var b3 = NaN;
+console.log(a3 == b3);            // false
+console.log(a3 === b3);           // false
+console.log(Object.is(a3,b3));    // true
+
+var a4 = undefined;
+var b4 = undefined;
+console.log(a4 == b4);            // true
+console.log(a4 === b4);           // true
+console.log(Object.is(a4,b4));    // true
+```

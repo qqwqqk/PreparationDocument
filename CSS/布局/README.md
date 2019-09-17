@@ -243,7 +243,125 @@
 </div>
 ```
 
-## CSS多列布局
+## CSS 多列等高
+> border-box 实现
+```HTML
+<style>
+  #wrapper {
+    display: inline-block;
+    width: 400px;
+    border-left: 200px solid #6ee0b6;
+    background-color: #c3c3ff;
+  }
+  .left {
+    float: left;
+    width: 200px;
+    margin-left: -200px;
+    border-right: 10px solid #999;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+  .right {
+    float: left;
+    margin-left: -10px;
+    border-left: 10px solid #999;
+    padding: 20px;
+  }
+</style>
+
+<div id="wrapper">
+  <div class="left">
+    <p>left</p> <p>left</p> <p>left</p> <p>left</p>
+  </div>
+  <div class="right">
+    <p>right</p> <p>right</p>
+  </div>
+</div>
+```
+
+> margin 与 padding 对冲
+```HTML
+<style>
+  #wrapper {
+    overflow: hidden;
+  }
+  .column {
+    float: left;
+    width: 33%;
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+  }
+  .left {
+    background: #66CCFF;
+  }
+  .center {
+    background: #EE0000;
+  }
+  .right {
+    background: #39C5BB;
+  }
+</style>
+
+<div id="wrapper">
+    <div class="column left">
+        <p>left</p>
+        <p>left</p>
+    </div>
+    <div class="column center">
+        <p>center</p>
+        <p>center</p>
+        <p>center</p>
+        <p>center</p>
+    </div>
+    <div class="column right">
+        <p>right</p>
+        <p>right</p>
+    </div>
+</div>
+```
+
+> flex 布局实现
+```HTML
+<style>
+  #wrapper {
+  	display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .item {
+    flex: auto;
+  	align-items: stretch;
+  }
+  .left {
+    background: #66CCFF;
+  }
+  .center {
+    background: #EE0000;
+  }
+  .right {
+    background: #39C5BB;
+  }
+</style>
+
+<div id="wrapper">
+    <div class="item left">
+        <p>left</p>
+        <p>left</p>
+    </div>
+    <div class="item center">
+        <p>center</p>
+        <p>center</p>
+        <p>center</p>
+        <p>center</p>
+    </div>
+    <div class="item right">
+        <p>right</p>
+        <p>right</p>
+    </div>
+</div>
+```
+
+## CSS 多列布局
 ```CSS
 div {
   -moz-column-count:3; 	/* Firefox */

@@ -136,14 +136,12 @@ var myeval = eval;	// 可能会抛出 EvalError 异常
 myeval("2+3");	    // 可能会抛出 EvalError 异常
 ```
 
-## Object.defineProperty() 与 Proxy()
->Object.defineProperty() 语法
-```JavaScript
-Object.defineProperty(obj, prop, descriptor)
-// obj：必需。目标对象
-// prop：必需。需定义或修改的属性的名字
-// descriptor：必需。目标属性所拥有的特性
-```
+## 双向绑定相关 Object.defineProperty() 与 Proxy()
+>属性描述符 Object.defineProperty(obj, prop, descriptor) 的参数包含三个部分：
+>>obj：必需。目标对象
+>>prop：必需。需定义或修改的属性的名字
+>>descriptor：必需。目标属性所拥有的特性
+
 |属性|默认值|	说明|
 |-|-|-|
 |enumerable	|false|	描述属性是否可以被for...in或Object.keys枚举 |
@@ -178,4 +176,92 @@ Object.defineProperty(obj, "name", {
     newVal= newValue;
   },
 });
+```
+
+>>双向绑定示例
+```JavaScript
+var person = { "name" : undefined};
+var obj1 = {};
+var obj2 = {};
+Object.defineProperty(obj1, "name", {
+  get: function(){ return person.name; },
+  set: function(value){ person.name = value; },
+});
+Object.defineProperty(obj2, "name", {
+  get: function(){ return person.name; },
+  set: function(value){ person.name = value; },
+});
+console.log(obj1.name);       // undefined
+console.log(obj2.name);       // undefined
+obj1.name = "Tom";
+console.log(obj1.name);       // Tom
+console.log(obj2.name);       // Tom
+obj1.name = "Jerry";
+console.log(obj1.name);       // Jerry
+console.log(obj2.name);       // Jerry
+```
+
+>Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，属于一种“元编程”（meta programming）。
+>>Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。
+| 拦截| 描述|
+|-|-|
+|get(target, propKey, receiver)|拦截对象属性的读取，比如proxy.foo和proxy['foo']。|
+|set(target, propKey, value, receiver)|拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。|
+|has(target, propKey)| 拦截propKey in proxy的操作，返回一个布尔值。|
+|deleteProperty(target, propKey)| 拦截delete proxy[propKey]的操作，返回一个布尔值。|
+|ownKeys(target)| 拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的可遍历属性。|
+|getOwnPropertyDescriptor(target, propKey)| 拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。|
+|defineProperty(target, propKey, propDesc)| 拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。|
+|preventExtensions(target)| 拦截Object.preventExtensions(proxy)，返回一个布尔值。|
+|getPrototypeOf(target)| 拦截Object.getPrototypeOf(proxy)，返回一个对象。|
+|isExtensible(target)| 拦截Object.isExtensible(proxy)，返回一个布尔值。|
+|setPrototypeOf(target, proto)| 拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。|
+a|pply(target, object, args)| 拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。|
+|construct(target, args)| 拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。|
+
+>>双向绑定示例
+```JavaScript
+let person = { "name" : undefined};
+let personHandler = {
+  get: function(target,propkey){
+    if(propkey != "name"){ return false; }
+    else { return target[propkey]; }
+  },
+  set: function(target,propkey,value){
+    if(propkey != "name"){ return false; }
+    else { target[propkey] = value; }
+  }
+}
+let obj1 = new Proxy(person, personHandler);
+let obj2 = new Proxy(person, personHandler);
+console.log(obj1.name);       // undefined
+console.log(obj2.name);       // undefined
+obj1.name = "Tom";
+console.log(obj1.name);       // Tom
+console.log(obj2.name);       // Tom
+obj1.name = "Jerry";
+console.log(obj1.name);       // Jerry
+console.log(obj2.name);       // Jerry
+```
+
+## requestAnimationFrame()
+> 请求动画帧 requestAnimationFrame() 
+>> 由系统来决定回调函数的执行时机。保证回调函数在屏幕每一次的刷新间隔中只被执行一次。
+>>特点：
+>>requestAnimationFrame会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率。
+>>在隐藏或不可见的元素中，requestAnimationFrame将不会进行重绘或回流，这当然就意味着更少的CPU、GPU和内存使用量
+>>requestAnimationFrame是由浏览器专门为动画提供的API，在运行时浏览器会自动优化方法的调用，并且如果页面不是激活状态下的话，动画会自动暂停，有效节省了CPU开销。
+```JavaScript
+const begin = 0;
+const end = 20;
+let curr = begin;
+function animation(){
+  requestAnimationFrame(function(){
+      curr++;
+      // TODO
+      console.log(curr);
+      if(curr < end) animation();
+  })  
+}
+animation();
 ```
