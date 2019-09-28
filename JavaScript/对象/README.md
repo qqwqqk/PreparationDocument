@@ -21,6 +21,9 @@ console.log(label)              //two
 ## 枚举
 for in 语句可以用来遍历一个对象中的所有属性名(包含原型链中的属性)。
 
+## 数组
+数组常用方法 push()，pop()，shift()，unshift()，splice()，sort()，reverse()，map()
+
 ## 前端模块化
 >为什么要进行前端模块化
 >>避免命名冲突(减少命名空间污染)

@@ -30,6 +30,7 @@ function deepClone(obj) {
   return objClone;
 }
 ```
+
 * 4.数组去重
 ```JavaScript
 function unique (arr) {
