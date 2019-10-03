@@ -1,18 +1,21 @@
 # 组件相关
 
-1. [virtual dom](#virtual-dom)
-2. [ant-design](#ant-design)
-3. [Vue Life Cycle](#Vue-生命周期)
-4. [React Life Cycle](#React-生命周期)
+1. [Virtual Dom](#1-Virtual-Dom)
+2. [Ant Design](#2-Ant-Design)
+3. [Vue 生命周期](#3-Vue-生命周期)
+4. [React 生命周期](#4-React-生命周期)
 
-## virtual dom
-用JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中 当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异 把所记录的差异应用到所构建的真正的DOM树上，视图就更新了。Virtual DOM 本质上就是在 JS 和 DOM 之间做了一个缓存。
+## 1. Virtual Dom
+用 JavaScript 对象结构表示 DOM 树的结构,并用这个树构建一个真正的 DOM 树插到文档当中。
+当状态变更的时候，重新构造一棵新的对象树。
+然后用新的树和旧的树进行比较，记录两棵树差异把所记录的差异应用到所构建的真正的DOM树上从而进行视图更新。
+Virtual DOM 本质上就是在 JavaScript 和 DOM 之间做了一个缓存。
 
-## ant design
+## 2. Ant Design
 优点：组件非常全面，样式效果也都比较不错。
 缺点：框架自定义程度低，默认UI风格修改困难。
 
-## Vue 生命周期
+## 3. Vue 生命周期
 beforeCreate( 创建前 )
 在实例初始化之后，数据观测和事件配置之前被调用，此时组件的选项对象还未创建，el 和 data 并未初始化，因此无法访问methods， data， computed等上的方法和数据。
 created ( 创建后 ）
@@ -35,7 +38,7 @@ destroyed（销毁后）
 在实例销毁之后调用，调用后，所以的事件监听器会被移出，所有的子实例也会被销毁，该钩子在服务器端渲染期间不被调用
 
 
-## React 生命周期
+## 4. React 生命周期
 
 initialization
 
