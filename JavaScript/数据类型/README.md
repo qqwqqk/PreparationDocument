@@ -15,6 +15,12 @@ null === undefined   //false
 1 + undefined        //NaN
 ```
 
+基本数据类型：按值访问，可操作保存在变量中的实际的值。基本类型值指的是简单的数据段。基本数据类型有这六种:undefined、null、string、number、boolean、symbol。
+
+引用类型：当复制保存着对象的某个变量时，操作的是对象的引用，但在为对象添加属性时，操作的是实际的对象。引用类型值指那些可能为多个值构成的对象。
+
+引用类型有这几种：Object、Array、RegExp、Date、Function、特殊的基本包装类型(String、Number、Boolean)以及单体内置对象(Global、Math)。
+
 ## 数字(Number)
 JavaScript只有一个数字类型，以64位浮点数进行表示。
 ```JavaScript

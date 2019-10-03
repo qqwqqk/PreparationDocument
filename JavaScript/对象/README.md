@@ -22,7 +22,34 @@ console.log(label)              //two
 for in 语句可以用来遍历一个对象中的所有属性名(包含原型链中的属性)。
 
 ## 数组
-数组常用方法 push()，pop()，shift()，unshift()，splice()，sort()，reverse()，map()
+|方法	描述
+|concat()	|连接两个或更多的数组，并返回结果。|
+|join()	|把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。|
+|pop()	|删除并返回数组的最后一个元素|
+|push()|	向数组的末尾添加一个或更多元素，并返回新的长度。|
+|reverse()|	颠倒数组中元素的顺序。|
+|shift()|	删除并返回数组的第一个元素|
+|slice()|	从某个已有的数组返回选定的元素|
+|sort()	|对数组的元素进行排序|
+|splice()|	删除元素，并向数组添加新元素。|
+|toSource()	|返回该对象的源代码。|
+|toString()	|把数组转换为字符串，并返回结果。|
+|toLocaleString()	|把数组转换为本地数组，并返回结果。|
+|unshift()|	向数组的开头添加一个或更多元素，并返回新的长度。|
+|valueOf()	|返回数组对象的原始值|
+
+## 正则
+>直接量语法
+>>/pattern/attributes
+
+>创建 RegExp 对象的语法：
+>>new RegExp(pattern, attributes);
+
+```JavaScript
+var re1 = /ABC\-001/;
+var re2 = new RegExp('ABC\\-001');
+```
+
 
 ## 前端模块化
 >为什么要进行前端模块化

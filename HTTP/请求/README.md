@@ -85,3 +85,18 @@ D[从缓存读取]-->E
 >浏览器页面生成时会构造两棵树，DOM树和CSSOM规则树:
 >>当浏览器接收到服务器相应来的HTML文档后，会遍历文档节点，生成DOM树
 >>CSSOM规则树由浏览器解析CSS文件生成
+
+## 跨域
+
+跨域，是指浏览器不能执行其他网站的脚本。它是由浏览器的同源策略造成的，是浏览器对JavaScript实施的安全限制，那么只要协议、域名、端口有任何一个不同，都被当作是不同的域。跨域原理，即是通过各种方式，避开浏览器的安全限制。
+
+JSONP：通过动态创建script，再请求一个带参网址实现跨域通信。document.domain + iframe跨域：两个页面都通过js强制设置document.domain为基础主域，就实现了同域。
+location.hash + iframe跨域：a欲与b跨域相互通信，通过中间页c来实现。 三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信。
+
+window.name + iframe跨域：通过iframe的src属性由外域转向本地域，跨域数据即由iframe的window.name从外域传递到本地域。
+
+postMessage跨域：可以跨域操作的window属性之一。
+
+CORS：服务端设置Access-Control-Allow-Origin即可，前端无须设置，若要带cookie请求，前后端都需要设置。
+
+代理跨域：启一个代理服务器，实现数据的转发
