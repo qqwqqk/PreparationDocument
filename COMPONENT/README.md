@@ -1,9 +1,14 @@
 # 组件相关
 
+1. [virtual dom](#virtual-dom)
+2. [ant-design](#ant-design)
+3. [Vue Life Cycle](#Vue-生命周期)
+4. [React Life Cycle](#React-生命周期)
+
 ## virtual dom
 用JavaScript 对象结构表示 DOM 树的结构；然后用这个树构建一个真正的 DOM 树，插到文档当中 当状态变更的时候，重新构造一棵新的对象树。然后用新的树和旧的树进行比较，记录两棵树差异 把所记录的差异应用到所构建的真正的DOM树上，视图就更新了。Virtual DOM 本质上就是在 JS 和 DOM 之间做了一个缓存。
 
-## ant-design
+## ant design
 优点：组件非常全面，样式效果也都比较不错。
 缺点：框架自定义程度低，默认UI风格修改困难。
 
