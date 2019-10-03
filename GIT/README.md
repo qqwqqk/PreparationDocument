@@ -1,10 +1,66 @@
 # GIT相关
 
-## git fetch 与 pull 的区别
-* git fetch是将远程主机的最新内容拉到本地，用户在检查了以后决定是否合并到工作本机分支中。
-* git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge。
+1. [git config](#git-config)
+2. [git remote](#git-remote)
+3. [git sync](#git-sync)
+4. [git submit](#git-submit)
+5. [git undo](#git-undo)
+6. [git branch](#git-branch)
 
-## git reset --soft 与 --hard 的区别
+## git config
+全局配置 git 用户名与邮箱
+```bash
+git config --global user.name "yourname"
+git config --global user.email "your_email@youremail.com"
+```
 
-* git reset –-soft：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可；
-* git reset -–hard：彻底回退到某个版本，本地的源码也会变为上一个版本的内容，撤销的commit中所包含的更改被冲掉
+## git remote
+与远程仓库相关的 git 命令
+```bash
+git remote add <origin> git@github.com:qqwqqk/PreparationDocument.git
+git remote -v
+git remote rm <origin>
+```
+
+## git sync
+远程同步相关的 git 命令
+```bash
+git fetch <origin> <originbranch>
+git pull <origin> <originbranch>:<localbranch>
+```
+
+## git submit
+提交与推送相关的 git 命令
+```bash
+git add .
+git commit -m 'message'
+git push <origin> <localbranch>:<originbranch>
+```
+
+## git undo
+撤消相关的 git 命令
+```bash
+git log
+
+git reset --hard <commit_id>
+git reset --hard HEAD^
+git reset --soft HEAD^
+
+git revert HEAD
+```
+
+## git branch
+分支相关的 git 命令
+```bash
+git branch
+git branch <branchname>
+git branch -d <branchname>
+git branch -m <oldbranch> <newbranch>
+
+git push <origin> --delete <originbranch>
+
+git checkout <branchname>
+git checkout -b <branchname>
+
+git merge <tagbranch>
+```
