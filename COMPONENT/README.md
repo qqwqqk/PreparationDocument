@@ -1,23 +1,23 @@
 # 组件相关
 
-1. [Virtual Dom](#1-Virtual-DOM)
-2. [Ant Design](#2-Ant-Design)
-3. [Vue 生命周期](#3-Vue-生命周期)
-4. [React 生命周期](#4-React-生命周期)
+1. [Virtual Dom](#Virtual-DOM)
+2. [Ant Design](#Ant-Design)
+3. [Vue 生命周期](#Vue-生命周期)
+4. [React 生命周期](#React-生命周期)
 
-## 1. Virtual DOM
+## Virtual DOM
 用 JavaScript 对象结构表示 DOM 树的结构,并用这个树构建一个真正的 DOM 树插到文档当中,
 当状态变更的时候,重新构造一棵新的对象树,然后用新的树和旧的树进行比较,记录两棵树差异把所记录的差异应用到所构建的真正的DOM树上从而进行视图更新.
 Virtual DOM 本质上就是在 JavaScript 和 DOM 之间做了一个缓存  
 
-## 2. Ant Design
+## Ant Design
 优点
 >组件非常全面,样式效果也都比较不错
 
 缺点
 >框架自定义程度低,默认UI风格修改困难
 
-## 3. Vue 生命周期
+## Vue 生命周期
 
 | 生命周期 | 事件状态 |
 |-|-|
@@ -30,7 +30,7 @@ Virtual DOM 本质上就是在 JavaScript 和 DOM 之间做了一个缓存
 | beforeDestrioy | 在实例销毁之前调用,实例仍然完全可用,这一步还可以用this来获取实例,一般进行一些重置的操作,比如清除掉组件中的定时器和监听的 DOM 事件|
 | destroyed | 在实例销毁之后调用,调用后,所有的事件监听器会被移出,所有的子实例也会被销毁 |
 
-## 4. React 生命周期
+## React 生命周期
 
 | 生命周期 | 事件状态 |
 |-|-|
