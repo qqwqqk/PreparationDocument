@@ -1,4 +1,8 @@
-# CSS动画
+# 动画
+
+1. [transition](#transition)
+2. [animation](#animation)
+3. [JavaScript 动画](#JavaScript-动画)
 
 ## transition
 ```CSS
@@ -7,7 +11,7 @@
   .tran:hover{ height: 100px; width: 100px; } 
   .tran{-webkit-transition: width 1s, height 1s 1s;}
 ```
->transition 属性是一个简写属性，用于设置四个过渡属性：
+transition 属性是一个简写属性，用于设置四个过渡属性：
 
 |值|默认值|描述|
 |-|-|-|
@@ -33,8 +37,8 @@
   100% {background: red; left:0px; top:0px;}
 }
 ```
->@keyframes 规定动画。
->animation 是所有动画属性的简写属性，除了 animation-play-state 与 animation-fill-mode属性。
+@keyframes 规定动画。  
+animation 是所有动画属性的简写属性，除了 animation-play-state 与 animation-fill-mode属性。
 
 |属性|默认值 |描述|
 |-|- |-|
@@ -47,15 +51,16 @@
 |animation-play-state| running|规定动画是否正在运行或暂停。|
 |animation-fill-mode| |规定对象动画时间之外的状态。|
 
-## 与 JavaScript 动画的对比
+## JavaScript 动画
 | |CSS |JavaScript|
 |-|- |-|
 |优点| 浏览器可以对动画进行优化；能够使用硬件加速|控制能力强；动画内容更为丰富，不存在兼容性问题|
 |缺点| 运行过程控制较弱,无法附加事件绑定回调函数；复杂动画代码冗长；兼容性问题|可能出现线程阻塞从而造成丢帧；代码的复杂度高|
->CSS动画流畅的原因
->>渲染线程分为main thread(主线程)和compositor thread(合成器线程)。
->>如果CSS动画只是改变transform和opacity，这时整个CSS动画得以在compositor thread完成（而JavaScript动画则会在main thread执行，然后触发compositor进行下一步操作）
->>在JavaScript执行一些昂贵的任务时，main thread繁忙，CSS动画由于使用了compositor thread可以保持流畅
->CSS动画比JS流畅的前提：
->>JS在执行一些昂贵的任务
->>同时CSS动画不触发layout或paint
+CSS动画流畅的原因
+>渲染线程分为main thread(主线程)和compositor thread(合成器线程)。
+>如果CSS动画只是改变transform和opacity，这时整个CSS动画得以在compositor thread完成（而JavaScript动画则会在main thread执行，然后触发compositor进行下一步操作）
+>在JavaScript执行一些昂贵的任务时，main thread繁忙，CSS动画由于使用了compositor thread可以保持流畅
+
+CSS动画比JS流畅的前提：
+>JS在执行一些昂贵的任务
+>同时CSS动画不触发layout或paint
