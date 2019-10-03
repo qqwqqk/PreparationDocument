@@ -17,8 +17,8 @@ width表示 content 部分的宽度,
 盒子模型宽度为 border-left + padding-left + width + padding-right + border-right  
 
 CSS3中引入了box-sizing属性
->box-sizing:content-box,表示标准的盒子模型;
->box-sizing:border-box,表示的是IE盒子模型;
+>box-sizing:content-box,表示标准的盒子模型;  
+>box-sizing:border-box,表示的是IE盒子模型;  
 >box-sizing:padding-box,这个属性值的宽度为 padding-left + width + padding-right.  
 
 ## 背景色的填充区域
