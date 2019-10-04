@@ -67,35 +67,7 @@ fetch的post请求的时候，fetch 第一次发送了一个Options请求，询�
 | 强缓存| 从缓存取| 200（from cache）| 否，直接从缓存取 | pragma -> cache-control -> expires|
 | 协商缓存| 从缓存取| 304（not modified）| 是，通过服务器来告知缓存是否可用| Etag/If-None-Match -> Last-Modified/If-Modified-Since|
 
-```mermaid
-graph LR
-A(浏览器请求)-->B
-B[有缓存]-->C
-C{是否过期}-->|是|F
-C{是否过期}-->|否|D
-D[从缓存读取]-->E[呈现]
-F{Etag?}-->|否|G
-G{Last-Modified?}-->|否|H
-H[向Web服务器请求]-->I
-I[请求响应,缓存协商]-->E
-F-->|是|J
-G-->|是|K
-J[向Web服务器请求带If-None-Match]-->L
-K[向Web服务器请求带If-Modified-Since]-->L
-L{服务器决策}-->|200|I
-L{服务器决策}-->|304|D
-D[从缓存读取]-->E
-```
-
-```mermaid
-graph LR
-a-->b
-```
-
-```flow
-a-->b
-```
-
+![cache](cache.svg)
 
 ## 前端优化
 
