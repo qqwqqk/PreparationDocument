@@ -120,18 +120,13 @@ SSL 协议位于 TCP/IP 协议与各种应用层协议之间,为数据通讯提�
 
 * TCP报头
 ![TCPheader](TCPheader.svg)
+
   源端口号和目的端口号：再加上IP首部的源IP地址和目的IP地址可以唯一确定一个TCP连接  
   数据序号：表示在这个报文段中的第一个数据字节序号  
   确认序号：仅当ACK标志为1时有效。确认号表示期望收到的下一个字节的序号 (这个下面再详细分析)  
   偏移：就是头部长度,有4位,跟IP头部一样,以4字节为单位。最大是60个字节  
   保留位：6位,必须为0  
-  6个标志位：  
-    URG-紧急指针有效  
-    ACK-确认序号有效  
-    PSH-接收方应尽快将这个报文交给应用层  
-    RST-连接重置  
-    SYN-同步序号用来发起一个连接  
-    FIN-终止一个连接  
+  6个标志位：URG-紧急指针有效;ACK-确认序号有效;PSH-接收方应尽快将这个报文交给应用层;RST-连接重置;SYN-同步序号用来发起一个连接;FIN-终止一个连接
   窗口字段：16位,代表的是窗口的字节容量,也就是 TCP 的标准窗口最大为2^16-1=65535个字节  
   校验和：源机器基于数据内容计算一个数值,收信息机要与源机器数值 结果完全一样,从而证明数据的有效性。检验和覆盖了整个的 TCP 报文段：这是一个强制性的字段,一定是由发送端计算和存储,并由接收端进行验证的。  
   紧急指针：是一个正偏移量,与序号字段中的值相加表示紧急数据最后一个字节的序号。TCP的紧急方式是发送端向另一端发送紧急数据的一种方式  
@@ -142,16 +137,18 @@ SSL 协议位于 TCP/IP 协议与各种应用层协议之间,为数据通讯提�
 * TCP三次握手与四次挥手
 
 * 三次握手
-    1. 第一次握手：建立连接时,客户端发送syn包 (syn=j)到服务器,并进入SYN_SENT状态,等待服务器确认；SYN：同步序列编号 (Synchronize Sequence Numbers)。
-    2. 第二次握手：服务器收到syn包,必须确认客户的SYN (ack=j+1),同时自己也发送一个SYN包 (syn=k),即SYN+ACK包,此时服务器进入SYN_RECV状态；
-    3. 第三次握手：客户端收到服务器的SYN+ACK包,向服务器发送确认包ACK(ack=k+1),此包发送完毕,客户端和服务器进入ESTABLISHED (TCP连接成功)状态,完成三次握手。
+![three](three.svg)
+1. 第一次握手：建立连接时,客户端发送syn包 (syn=j)到服务器,并进入SYN_SENT状态,等待服务器确认；SYN：同步序列编号 (Synchronize Sequence Numbers)。
+2. 第二次握手：服务器收到syn包,必须确认客户的SYN (ack=j+1),同时自己也发送一个SYN包 (syn=k),即SYN+ACK包,此时服务器进入SYN_RECV状态；
+3. 第三次握手：客户端收到服务器的SYN+ACK包,向服务器发送确认包ACK(ack=k+1),此包发送完毕,客户端和服务器进入ESTABLISHED (TCP连接成功)状态,完成三次握手。
 
 
 * 四次挥手
-    1. 第一次挥手：Client发送一个FIN,用来关闭Client到Server的数据传送,Client进入FIN_WAIT_1状态。
-    2. 第二次挥手：Server收到FIN后,发送一个ACK给Client,确认序号为收到序号+1 (与SYN相同,一个FIN占用一个序号),Server进入CLOSE_WAIT状态。
-    3. 第三次挥手：Server发送一个FIN,用来关闭Server到Client的数据传送,Server进入LAST_ACK状态。
-    4. 第四次挥手：Client收到FIN后,Client进入TIME_WAIT状态,接着发送一个ACK给Server,确认序号为收到序号+1,Server进入CLOSED状态,完成四次挥手。
+![four](four.svg)
+1. 第一次挥手：Client发送一个FIN,用来关闭Client到Server的数据传送,Client进入FIN_WAIT_1状态。
+2. 第二次挥手：Server收到FIN后,发送一个ACK给Client,确认序号为收到序号+1 (与SYN相同,一个FIN占用一个序号),Server进入CLOSE_WAIT状态。
+3. 第三次挥手：Server发送一个FIN,用来关闭Server到Client的数据传送,Server进入LAST_ACK状态。
+4. 第四次挥手：Client收到FIN后,Client进入TIME_WAIT状态,接着发送一个ACK给Server,确认序号为收到序号+1,Server进入CLOSED状态,完成四次挥手。
 
 * TCP 与 UDP 的区别
 
@@ -193,11 +190,11 @@ http是一个无状态协议,session，cookie和token能够使特定域名下所
 
 ## RESTful API
 * 对于资源的操作 (CRUD),由HTTP动词 (谓词)表示。
-  1. GET：从服务器取出资源 (一项或多项)
-  2. POST：在服务器新建一个资源
-  3. PUT：在服务器更新资源 (客户端提供改变后的完整资源)
-  4. PATCH：在服务器更新资源 (客户端提供改变的属性)
-  5. DELETE：从服务器删除资源
+1. GET：从服务器取出资源 (一项或多项)
+2. POST：在服务器新建一个资源
+3. PUT：在服务器更新资源 (客户端提供改变后的完整资源)
+4. PATCH：在服务器更新资源 (客户端提供改变的属性)
+5. DELETE：从服务器删除资源
 
 |请求类型|请求路径|功能|
 |-|-|-|
