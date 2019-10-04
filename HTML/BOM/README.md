@@ -66,8 +66,9 @@ BOM主要功能包括：
 
 ## winodw
 1. window对象集合
+
 |集合|描述|
-|---|---|
+|-|-|
 |frames[]|返回窗口中所有命名的框架。|
 
 该集合是 Window 对象的数组，每个 Window 对象在窗口中含有一个框架或 `<iframe>`。属性 frames.length 存放数组 frames[] 中含有的元素个数。注意，frames[] 数组中引用的框架可能还包括框架，它们自己也具有 frames[] 数组。
@@ -124,6 +125,7 @@ BOM主要功能包括：
 
 ## navigator 
 1. navigator 对象属性
+
 |属性|描述|
 |---|---|
 |appCodeName|返回浏览器的代码名。|
@@ -140,13 +142,14 @@ BOM主要功能包括：
 |userLanguage|返回 OS 的自然语言设置。|
 
 2. navigator 对象方法
+
 |方法|描述|
 |---|---|
 |javaEnabled()|规定浏览器是否启用 Java。|
 |taintEnabled()|规定浏览器是否启用数据污点 (data tainting)。|
 
 ## screen 
-screen 对象属性
+
 |属性|描述|
 |---|---|
 |availHeight|返回显示屏幕的高度 (除 Windows 任务栏之外)。|
@@ -165,11 +168,13 @@ screen 对象属性
 
 ## history 
 1. history 对象属性
+
 |属性|描述|
 |---|---|
 |length|返回浏览器历史列表中的 URL 数量。|
 
 2. history 对象方法
+
 |属性|方法|
 |---|---|
 |back()|加载 history 列表中的前一个 URL。|
@@ -178,6 +183,7 @@ screen 对象属性
 
 ## location 
 1. location 对象属性
+
 |属性|描述|
 |---|---|
 |hash|设置或返回从井号 (#) 开始的 URL(锚)。|
@@ -190,6 +196,7 @@ screen 对象属性
 |search|设置或返回从问号 (?) 开始的 URL(查询部分)。|
 
 2. location 对象属性
+
 |属性|方法|
 |---|---|
 |assign()|加载新的文档。|
