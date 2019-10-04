@@ -19,20 +19,20 @@ HTML5 技术结合了 HTML4.01 的相关标准并革新，符合现代网络发�
 
 * HTML5建立的一些规则
 
-新特性应该基于 HTML、CSS、DOM 以及 JavaScript  
-减少对外部插件的需求（比如 Flash）  
-更优秀的错误处理  
-更多取代脚本的标记  
-HTML5 应该独立于设备  
-开发进程应对公众透明  
+1. 新特性应该基于 HTML、CSS、DOM 以及 JavaScript  
+2. 减少对外部插件的需求（比如 Flash）  
+3. 更优秀的错误处理  
+4. 更多取代脚本的标记  
+5. HTML5 应该独立于设备  
+6. 开发进程应对公众透明  
 
 * HTML5 中的一些有趣的新特性：
 
-用于绘画的 canvas 元素  
-用于媒介回放的 video 和 audio 元素  
-对本地离线存储的更好的支持  
-新的特殊内容元素，比如 article、footer、header、nav、section  
-新的表单控件，比如 calendar、date、time、email、url、search  
+1. 用于绘画的 canvas 元素  
+2. 用于媒介回放的 video 和 audio 元素  
+3. 对本地离线存储的更好的支持  
+4. 新的特殊内容元素，比如 article、footer、header、nav、section  
+5. 新的表单控件，比如 calendar、date、time、email、url、search  
 
 ## HTML5 视频
 * video 标签的属性
