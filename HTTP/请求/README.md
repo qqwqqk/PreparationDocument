@@ -13,18 +13,22 @@ HTTP请求报文由三部分组成：请求行，请求头，请求体
 ![HTTPrequest](HTTPrequest.svg)
 
 * 请求行：
+
 1. 请求方法: HTTP/1.1 定义的请求方法有8种：GET、POST、PUT、DELETE、PATCH、HEAD、OPTIONS、TRACE。最常的两种GET和POST，如果是RESTful接口的话一般会用到GET、POST、DELETE、PUT。
 2. 请求地址: URL:统一资源定位符，是一种自愿位置的抽象唯一识别方法。组成：<协议>：//<主机>：<端口>/<路径> 注：端口和路径有时可以省略（HTTP默认端口号是80）
 3. HTTP协议版本: 协议版本的格式为：HTTP/主版本号.次版本号，常用的有HTTP/1.0和HTTP/1.1
 4. 分隔符以空格表示，不可省略
 
 * 请求头：
+
 请求报头: 请求头部为请求报文添加了一些附加信息，由“名/值”对组成，每行一对，名和值之间使用冒号分隔。
 
 * 空行：
+
 PS: 请求头与请求体之间的空行不可省略
 
 * 请求体：
+
 请求数据: 请求数据也叫主体，可以添加任意的其他数据。 
 
 ## 请求方式
@@ -47,7 +51,7 @@ PS: 请求头与请求体之间的空行不可省略
 * GET 与 POST 的区别
 
 | | 参数传递 | 长度限制 | 安全性 | 编码方式 | 记录缓存 |fetch请求 |
-| | ---| ---| ---| ---|
+| ---| ---| ---| ---| ---| ---| ---|
 | GET| 通过URL传递 | 长度有限制 | 不安全 | 只能进行URL编码 | 请求参数会被保存于浏览历史中 | 一个TCP数据包 |
 | POST| 存放于request body中 |  长度无限制 | 安全 | 支持多种编码方式 | 请求参数不会被保存 | 二个TCP数据包 |
 
@@ -59,8 +63,8 @@ fetch的post请求的时候，fetch 第一次发送了一个Options请求，询�
 * 缓存分为两种：强缓存和协商缓存，根据响应的header内容来决定。
 
 | | 获取资源形式| 状态码| 是否发送请求到服务器| 字段优先级|
-| | ---| ---| ---| ---|
-| 强缓存| 从缓存取| 200（from cache）| 否，直接从缓存取|pragma -> cache-control -> expires|
+| ---| ---| ---| ---| ---|
+| 强缓存| 从缓存取| 200（from cache）| 否，直接从缓存取 | pragma -> cache-control -> expires|
 | 协商缓存| 从缓存取| 304（not modified）| 是，通过服务器来告知缓存是否可用| Etag/If-None-Match -> Last-Modified/If-Modified-Since|
 
 ```mermaid
@@ -81,6 +85,18 @@ K[向Web服务器请求带If-Modified-Since]-->L
 L{服务器决策}-->|200|I
 L{服务器决策}-->|304|D
 D[从缓存读取]-->E
+```
+
+```mermaid
+sequenceDiagram
+Alice ->> Bob: Hello Bob, how are you?
+Bob-->>John: How about you John?
+Bob--x Alice: I am good thanks!
+Bob-x John: I am good thanks!
+Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+Bob-->Alice: Checking with John...
+Alice->John: Yes... John, how are you?
 ```
 
 ## 前端优化
