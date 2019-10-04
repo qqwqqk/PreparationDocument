@@ -12,12 +12,12 @@
 10. [HTML5 Web Workers](#HTML5-Web-Workers)
 
 ## 什么是HTML5
-1. 简介
+* 简介
 
 HTML5 技术结合了 HTML4.01 的相关标准并革新，符合现代网络发展要求，在 2008 年正式发布。HTML5 由不同的技术构成，其在互联网中得到了非常广泛的应用，提供更多增强网络应用的标准机。  
 与传统的技术相比，HTML5 的语法特征更加明显，并且结合了 SVG 的内容。这些内容在网页中使用可以更加便捷地处理多媒体内容，而且 HTML5中还结合了其他元素，对原有的功能进行调整和修改，进行标准化工作。HTML5 在 2012 年已形成了稳定的版本。
 
-2. HTML5建立的一些规则
+* HTML5建立的一些规则
 
 新特性应该基于 HTML、CSS、DOM 以及 JavaScript  
 减少对外部插件的需求（比如 Flash）  
@@ -26,7 +26,7 @@ HTML5 技术结合了 HTML4.01 的相关标准并革新，符合现代网络发�
 HTML5 应该独立于设备  
 开发进程应对公众透明  
 
-3. HTML5 中的一些有趣的新特性：
+* HTML5 中的一些有趣的新特性：
 
 用于绘画的 canvas 元素  
 用于媒介回放的 video 和 audio 元素  
@@ -35,7 +35,7 @@ HTML5 应该独立于设备
 新的表单控件，比如 calendar、date、time、email、url、search  
 
 ## HTML5 视频
-1. video 标签的属性
+* video 标签的属性
 
 |属性|值|描述|
 |-|-|-|
@@ -47,7 +47,7 @@ HTML5 应该独立于设备
 |src|url|要播放的视频的 URL。|
 |width|pixels|设置视频播放器的宽度。|
 
-2. HTML5 video - 方法、属性以及事件
+* HTML5 video - 方法、属性以及事件
 
 |方法|属性|事件|
 |-|-|-|
@@ -88,13 +88,13 @@ HTML5 应该独立于设备
 |dragend|事件主体是被拖放元素，在整个拖放操作结束时触发。|
 
 ## HTML5 画布
-1. 什么是 Canvas？
+* 什么是 Canvas？
 
 HTML5 的 canvas 元素使用 JavaScript 在网页上绘制图像。
 画布是一个矩形区域，您可以控制其每一像素。
 canvas 拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。
 
-2. 绘制圆形
+* 绘制圆形
 
 ```JavaScript
 var sketchpad = document.getElementById('canvas');
@@ -113,7 +113,7 @@ var draw = function(x, y, r, start, end, color, type) {
 draw(100,75,50,0,360,'red','fill');
 ```
 
-3. 绘制三角形
+* 绘制三角形
 
 ```JavaScript
 var sketchpad = document.getElementById('canvas');
@@ -135,7 +135,7 @@ draw(50,50,175,50,150,'red','stroke');
 
 ## HTML5 SVG
 
-1. 什么是 SVG
+* 什么是 SVG
 
 SVG 指可伸缩矢量图形 (Scalable Vector Graphics)
 SVG 用于定义用于网络的基于矢量的图形
@@ -143,7 +143,7 @@ SVG 使用 XML 格式定义图形
 SVG 图像在放大或改变尺寸的情况下其图形质量不会有损失
 SVG 是万维网联盟的标准
 
-2. SVG 的优势
+* SVG 的优势
 
 SVG 图像可通过文本编辑器来创建和修改
 SVG 图像可被搜索、索引、脚本化或压缩
@@ -151,7 +151,7 @@ SVG 是可伸缩的
 SVG 图像可在任何的分辨率下被高质量地打印
 SVG 可在图像质量不下降的情况下被放大
 
-3. Star Demo
+* Star Demo
 
 ```HTML
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
@@ -163,19 +163,19 @@ SVG 可在图像质量不下降的情况下被放大
 ## Canvas vs SVG
 Canvas 和 SVG 都可以在浏览器中创建图形，但是它们在根本上是不同的。
 
-1. Canvas
+* Canvas
 
 Canvas 通过 JavaScript 来绘制 2D 图形。
 Canvas 是逐像素进行渲染的。
 在 canvas 中，一旦图形被绘制完成，它就不会继续得到浏览器的关注。如果其位置发生变化，那么整个场景也需要重新绘制，包括任何或许已被图形覆盖的对象。
 
-2. SVG
+* SVG
 
 SVG 是一种使用 XML 描述 2D 图形的语言。
 SVG 基于 XML，这意味着 SVG DOM 中的每个元素都是可用的。您可以为某个元素附加 JavaScript 事件处理器。
 在 SVG 中，每个被绘制的图形均被视为对象。如果 SVG 对象的属性发生变化，那么浏览器能够自动重现图形。
 
-3. Canvas 与 SVG 的比较
+* Canvas 与 SVG 的比较
 
 |Canvas|SVG|
 |-|-|
@@ -187,12 +187,12 @@ SVG 基于 XML，这意味着 SVG DOM 中的每个元素都是可用的。您可
 
 ## HTML5 地理定位
 
-1. 定位用户的位置
+* 定位用户的位置
 
 HTML5 Geolocation API 用于获得用户的地理位置。
 鉴于该特性可能侵犯用户的隐私，除非用户同意，否则用户位置信息是不可用的。
 
-2. getCurrentPosition
+* getCurrentPosition
 
 getCurrentPosition()方法用来获得用户的位置。
 
@@ -204,12 +204,12 @@ getCurrentPosition()方法用来获得用户的位置。
 
 ## HTML5 Web 存储
 
-1. HTML5 提供了两种在客户端存储数据的新方法：
+* HTML5 提供了两种在客户端存储数据的新方法：
 
 localStorage - 没有时间限制的数据存储
 sessionStorage - 针对一个 session 的数据存储
 
-2. 与 cookie 的对比
+* 与 cookie 的对比
 
 | |cookie|sessionStorage|localStorage|
 |-|-|-|-|
@@ -220,7 +220,7 @@ sessionStorage - 针对一个 session 的数据存储
 |易用性|需自己封装API|可以使用原生接口|可以使用原生接口|
 |应用场景|用户登录|页面传参|临时数据存储|
 
-3. cookie 字段
+* cookie 字段
 
 |字段|描述|
 |-|-|
@@ -239,7 +239,7 @@ sessionStorage - 针对一个 session 的数据存储
 
 ## HTML5 应用程序缓存
 
-1. 什么是应用程序缓存(Application Cache)?
+* 什么是应用程序缓存(Application Cache)?
 
 HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并可在没有因特网连接时进行访问。
 应用程序缓存为应用带来三个优势：
@@ -247,7 +247,7 @@ HTML5 引入了应用程序缓存，这意味着 web 应用可进行缓存，并
 速度 - 已缓存资源加载得更快
 减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源。
 
-2. Cache Manifest 基础
+* Cache Manifest 基础
 
 ```HTML
 !DOCTYPE HTML
@@ -262,7 +262,7 @@ html manifest="demo.appcache"
 manifest 文件的建议的文件扩展名是：".appcache"。
 >PS: manifest 文件需要配置正确的 MIME-type,即 "text/cache-manifest"。必须在 web 服务器上进行配置。
 
-3. Manifest 文件
+* Manifest 文件
 
 manifest 文件是简单的文本文件，它告知浏览器被缓存的内容(以及不缓存的内容)。
 manifest 文件可分为三个部分：
@@ -271,12 +271,12 @@ NETWORK - 在此标题下列出的文件需要与服务器的连接，且不会�
 FALLBACK - 在此标题下列出的文件规定当页面无法访问时的回退页面(比如 404 页面)
 
 ## HTML5 Web Workers
-1. 什么是 Web Worker？
+* 什么是 Web Worker？
 
 当在 HTML 页面中执行脚本时，页面的状态是不可响应的，直到脚本已完成。
 Web Worker 是运行在后台的 JavaScript，独立于其他脚本，不会影响页面的性能。您可以继续做任何愿意做的事情：点击、选取内容等等，而此时 Web Worker 在后台运行。
 
-2. DEMO
+* DEMO
 
 ```JavaScript
 // main.js
@@ -304,6 +304,6 @@ function timedCount(){
 timedCount();
 ```
 
-3. 限制
+* 限制
 
 由于 web worker 位于外部文件中，它们无法访问window 对象、document 对象 与 parent 对象。

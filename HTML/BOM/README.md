@@ -9,7 +9,8 @@
 7. [location](#location)
 
 ## BOM 概念
-BOM(Browser Object Model)即浏览器对象模型。浏览器页面初始化时,会在内存创建一个全局对象,用来描述当前窗口的属性和状态,这个全局对象被称为浏览器对象模型。  
+* BOM(Browser Object Model)即浏览器对象模型。
+浏览器页面初始化时,会在内存创建一个全局对象,用来描述当前窗口的属性和状态,这个全局对象被称为浏览器对象模型。  
 不同于DOM的标准化组织是W3C,JavaScript的语法标准化组织是ECMA,BOM没有官方标准,它最初是Netscape浏览器标准的一部分,也就是说,对于现代浏览器,每个浏览器都有自己的BOM实现方法,所以直接使用BOM会有兼容性问题。
 
 ![BOM](BOM.svg)
@@ -18,7 +19,7 @@ window对象是BOM的顶层(核心)对象,不是JS对象,所有对象都是通�
 JavaScript是通过访问BOM对象来访问、控制、修改客户端(浏览器),由于BOM的window包含了document,window对象的属性和方法是直接可以使用而且被感知的,因此可以直接使用window对象的document属性,通过document属性就可以访问、检索、修改XHTML文档内容与结构
 因为document对象又是DOM(DocumentObjectModel)模型的根节点。可以说,BOM包含了DOM(文档对象模型),浏览器提供出来给予访问的是BOM对象,从BOM对象再访问到DOM对象,从而js可以操作浏览器以及浏览器读取到的文档。  
 
-BOM主要功能包括：
+* BOM主要功能包括：
 1. 弹出新浏览器窗口的能力；
 2. 移动、关闭和更改浏览器窗口大小的能力；
 3. 可提供WEB浏览器详细信息的导航对象；
@@ -28,13 +29,15 @@ BOM主要功能包括：
 7. InternetExplorer对BOM进行扩展以包括ActiveX对象类，可以通过JavaScript来实现ActiveX对象。
 
 ## 重绘与重排
-1. document.write和innerHTML的区别
+* document.write和innerHTML的区别
+
 |方法|描述|
 |-|-|
 |document.write|重排整个页面|
 |innerHTML| 重绘页面的一部分 |
 
-2. 浏览器运行
+* 浏览器运行
+
 |阶段|描述|
 |-|-|
 |构建DOM树(parse)|渲染引擎解析HTML文档，首先将标签转换成DOM树中的DOM node(包括js生成的标签)生成内容树(Content Tree/DOM Tree)|
@@ -42,7 +45,7 @@ BOM主要功能包括：
 |布局渲染树(reflow/layout)|从根节点递归调用，计算每一个元素的大小、位置等，给出每个节点所应该在屏幕上出现的精确坐标|
 |绘制渲染树(paint/repaint)|遍历渲染树，使用UI后端层来绘制每个节点|
 
-3. 重绘与重排对比
+* 重绘与重排对比
 重排必定会引发重绘，但重绘不一定会引发重排
 
 | |重绘|重排|
@@ -56,16 +59,16 @@ BOM主要功能包括：
 
 * 设计的优化：
 减少重绘和重排就是要减少对渲染树的操作，可以合并多次的DOM和样式的修改，并减少对style样式的请求。
-1.直接改变元素的className；
-2.display：none；先设置元素为display：none；然后进行页面布局等操作；设置完成后将元素设置为display：block；这样的话就只引发两次重绘和重排；
-3.不要经常访问浏览器的flush队列属性；如果一定要访问，可以利用缓存。将访问的值存储起来，接下来使用就不会再引发回流；
-4.使用cloneNode(true or false) 和 replaceChild 技术，引发一次回流和重绘；
-5.将需要多次重排的元素，position属性设为absolute或fixed，元素脱离了文档流，它的变化不会影响到其他元素；
-6.如果需要创建多个DOM节点，可以使用DocumentFragment创建完后一次性的加入document；
-7.尽量不要使用table布局。
+1. 直接改变元素的className；
+2. display：none；先设置元素为display：none；然后进行页面布局等操作；设置完成后将元素设置为display：block；这样的话就只引发两次重绘和重排；
+3. 不要经常访问浏览器的flush队列属性；如果一定要访问，可以利用缓存。将访问的值存储起来，接下来使用就不会再引发回流；
+4. 使用cloneNode(true or false) 和 replaceChild 技术，引发一次回流和重绘；
+5. 将需要多次重排的元素，position属性设为absolute或fixed，元素脱离了文档流，它的变化不会影响到其他元素；
+6. 如果需要创建多个DOM节点，可以使用DocumentFragment创建完后一次性的加入document；
+7. 尽量不要使用table布局。
 
 ## winodw
-1. window对象集合
+* window对象集合
 
 |集合|描述|
 |-|-|
@@ -73,7 +76,7 @@ BOM主要功能包括：
 
 该集合是 Window 对象的数组，每个 Window 对象在窗口中含有一个框架或 `<iframe>`。属性 frames.length 存放数组 frames[] 中含有的元素个数。注意，frames[] 数组中引用的框架可能还包括框架，它们自己也具有 frames[] 数组。
 
-2. window对象属性
+* window对象属性
 
 |属性|描述|
 |-|-|
@@ -124,7 +127,7 @@ BOM主要功能包括：
 |setTimeout()|在指定的毫秒数后调用函数或计算表达式。|
 
 ## navigator 
-1. navigator 对象属性
+* navigator 对象属性
 
 |属性|描述|
 |---|---|
@@ -141,7 +144,7 @@ BOM主要功能包括：
 |userAgent|返回由客户机发送服务器的 user-agent 头部的值。|
 |userLanguage|返回 OS 的自然语言设置。|
 
-2. navigator 对象方法
+* navigator 对象方法
 
 |方法|描述|
 |---|---|
@@ -167,13 +170,13 @@ BOM主要功能包括：
 |width|返回显示器屏幕的宽度。|
 
 ## history 
-1. history 对象属性
+* history 对象属性
 
 |属性|描述|
 |---|---|
 |length|返回浏览器历史列表中的 URL 数量。|
 
-2. history 对象方法
+* history 对象方法
 
 |属性|方法|
 |---|---|
@@ -182,7 +185,7 @@ BOM主要功能包括：
 |go()|加载 history 列表中的某个具体页面。|
 
 ## location 
-1. location 对象属性
+* location 对象属性
 
 |属性|描述|
 |---|---|
@@ -195,7 +198,7 @@ BOM主要功能包括：
 |protocol|设置或返回当前 URL 的协议。|
 |search|设置或返回从问号 (?) 开始的 URL(查询部分)。|
 
-2. location 对象属性
+* location 对象属性
 
 |属性|方法|
 |---|---|

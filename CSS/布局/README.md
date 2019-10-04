@@ -59,7 +59,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 |align-self| auto |允许元素存在与其他元素不一样的对齐方式,可覆盖align-items属性|
 
 ## 经典三栏布局方案
-1. float布局
+* float布局
 ```HTML
 <style>
   .left {
@@ -86,7 +86,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 </div>
 ```
 
-2. BFC 规则
+* BFC 规则
 ```HTML
 <style>
   .left {
@@ -112,7 +112,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 </div>
 ```
 
-3. 圣杯布局
+* 圣杯布局
 ```HTML
 <style>
   .left {
@@ -149,7 +149,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 </div>
 ```
 
-4. 双飞翼布局
+* 双飞翼布局
 ```HTML
 <style>
   .left {
@@ -192,7 +192,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 </div>
 ```
 
-5. Flex 布局
+* Flex 布局
 ```HTML
 <style>
   .left {
@@ -223,7 +223,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 </div>
 ```
 
-5. 绝对定位
+* 绝对定位
 ```HTML
 <style>
   .left {
@@ -254,14 +254,14 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 ```
 
 ## 垂直居中实现方案
-1. 使用 verticle-align:middle
+* 使用 verticle-align:middle
 ```CSS
 .centered{ 
   display: inline-block;
   vertical-align: middle;
 }
 ```
-2. 使用 Flex 布局
+* 使用 Flex 布局
 ```CSS
 .parent{
   display: flex;
@@ -270,7 +270,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
   align-self: center;
 }
 ```
-3. 使用 table-cell
+* 使用 table-cell
 ```CSS
 .parent{
   display: table;
@@ -280,7 +280,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
   vertical-align: middle;
 }
 ```
-4. 使用 transform
+* 使用 transform
 ```CSS
 .parent{
   position: relative;
@@ -293,7 +293,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 ```
 
 ## 多列等高实现方案
-1. border-box 实现
+* border-box 实现
 ```HTML
 <style>
   #wrapper {
@@ -328,7 +328,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 </div>
 ```
 
-2. margin 与 padding 对冲
+* margin 与 padding 对冲
 ```HTML
 <style>
   #wrapper {
@@ -369,7 +369,7 @@ Webkit 内核的浏览器,必须加上-webkit前缀.
 </div>
 ```
 
-3. Flex 布局实现
+* Flex 布局实现
 ```HTML
 <style>
   #wrapper {
@@ -420,24 +420,25 @@ div {
 ```
 
 ## 块格式化上下文
-BFC的概念
->块格式化上下文(Block Formatting Context,BFC)是Web页面的可视化CSS渲染的一部分,是布局过程中生成块级盒子的区域,也是浮动元素与其他元素的交互限定区域.
->>BFC是一个独立的布局环境,可以理解为一个容器,在这个容器中按照一定规则进行物品摆放,并且不会影响其它环境中的物品.
->>如果一个元素符合触发BFC的条件,则BFC中的元素布局不受外部影响.
->>浮动元素会创建BFC,则浮动元素内部子元素主要受该浮动元素影响,所以两个浮动元素之间是互不影响的.
+* BFC的概念
+块格式化上下文(Block Formatting Context,BFC)是Web页面的可视化CSS渲染的一部分,是布局过程中生成块级盒子的区域,也是浮动元素与其他元素的交互限定区域.
+1. BFC是一个独立的布局环境,可以理解为一个容器,在这个容器中按照一定规则进行物品摆放,并且不会影响其它环境中的物品.
+2. 如果一个元素符合触发BFC的条件,则BFC中的元素布局不受外部影响.
+3. 浮动元素会创建BFC,则浮动元素内部子元素主要受该浮动元素影响,所以两个浮动元素之间是互不影响的.
 
-BFC触发条件
->1. float的值不为none
->2. overflow的值不为visible
->3. display的值为table-cell、tabble-caption和inline-block之一
->4. position的值不为static或则releative中的任何一个
+* BFC触发条件
+1. float的值不为none
+2. overflow的值不为visible
+3. display的值为table-cell、tabble-caption和inline-block之一
+4. position的值不为static或则releative中的任何一个
 
-规则
->1. 浮动的元素会被父级计算高度(父级触发了BFC)
->2. 非浮动元素不会覆盖浮动元素位置(非浮动元素触发了BFC)
->3. margin不会传递给父级(父级触发了BFC),两个相邻元素上下margin会重叠(给其中一个元素增加一个父级,然后让他的父级触发BFC)
+* 规则
+1. 浮动的元素会被父级计算高度(父级触发了BFC)
+2. 非浮动元素不会覆盖浮动元素位置(非浮动元素触发了BFC)
+3. margin不会传递给父级(父级触发了BFC),两个相邻元素上下margin会重叠(给其中一个元素增加一个父级,然后让他的父级触发BFC)
 
 ## 清除浮动
+
 |方法|原理|优点|缺点|建议|评分|
 |-|-|-|-|-|-|
 |父级div定义伪类：after和zoom|IE8以上和非IE浏览器才支持:after,原理和方法2有点类似,zoom(IE转有属性)可解决ie6,ie7浮动问题|浏览器支持好,不容易出现怪问题(目前：大型网站都有使用,如：腾迅,网易,新浪等等)|代码多,不少初学者不理解原理,要两句代码结合使用,才能让主流浏览器都支持|推荐使用,建议定义公共类,以减少CSS代码|★★★★☆|
@@ -446,8 +447,8 @@ BFC触发条件
 |父级div定义overflow:hidden|必须定义width或zoom:1,同时不能定义height,使用overflow:hidden时,浏览器会自动检查浮动区域的高度|简单,代码少,浏览器支持好|不能和position配合使用,因为超出的尺寸的会被隐藏|只推荐没有使用position或对overflow:hidden理解比较深的朋友使用|★★★☆☆|
 |父级div定义overflow:auto|必须定义width或zoom:1,同时不能定义height,使用overflow:auto时,浏览器会自动检查浮动区域的高度|简单,代码少,浏览器支持好|内部宽高超过父级div时,会出现滚动条|不推荐使用,如果你需要出现滚动条或者确保你的代码不会出现滚动条就使用吧|★★☆☆☆|
 
-
 ## DOM 元素隐藏
+
 | |占据空间| 样式变更| 事件触发|
 |-|-|-|-|
 |display: none| No|Yes | No|
@@ -455,11 +456,11 @@ BFC触发条件
 |opacity: 0 |Yes |No| Yes|
 
 ## 外边距折叠
-毗邻的两个或多个外边距 (margin) 会合并成一个外边距.
->毗邻:是指没有被非空内容、padding、border 或 clear 分隔开,说明其位置关系.
->两个或多个:说明其数量必须是大于一个,又说明,折叠是元素与元素间相互的行为象.
+* 毗邻的两个或多个外边距 (margin) 会合并成一个外边距.
+1. 毗邻:是指没有被非空内容、padding、border 或 clear 分隔开,说明其位置关系.
+2. 两个或多个:说明其数量必须是大于一个,又说明,折叠是元素与元素间相互的行为象.
 
-折叠后的大小
+* 折叠后的大小
 1. 两个相同大小的正数：取某个外边距的值.即30px与30px发生折叠,折叠后的值为30px.
 2. 两个不同大小的正数：取较大的外边距的值.即30px与20px发生折叠,折叠后的值为30px.
 3. 一正一负：取正数与负数的和.即30px与-20px发生折叠,折叠后的值为10px.
@@ -467,6 +468,7 @@ BFC触发条件
 5. 不同大小负数： 取绝对值较大的负数.-30px与-20px折叠,折叠后为-30px.
 
 ## Position 定位
+
 |值|	描述|
 |-|-|
 |absolute	|生成绝对定位的元素,相对于 static 定位以外的第一个父元素进行定位.元素的位置通过 "left", "top", "right" 以及 "bottom" 属性进行规定.|
