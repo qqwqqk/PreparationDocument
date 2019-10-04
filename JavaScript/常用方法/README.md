@@ -1,6 +1,14 @@
 # JavaScript 常用函数
 
-* 1.数组扁平化
+## 目录
+* [数组扁平化](#数组扁平化)
+* [对象判空](#对象判空)
+* [对象深拷贝](#对象深拷贝)
+* [数组去重](#数组去重)
+* [元素全排列](#元素全排列)
+* [对象判空](#对象判空)
+
+## 数组扁平化
 ```JavaScript
 function flatten(arr){
   var res = [];
@@ -15,14 +23,14 @@ function flatten(arr){
 }
 ```
 
-* 2.对象判空
+## 对象判空
 ```JavaScript
 function isEmpty(obj){
   return Object.keys(obj).length == 0;
 }
 ```
 
-* 3.对象深度拷贝
+## 对象深拷贝
 ```JavaScript
 function deepClone(obj) {
   var _obj = JSON.stringify(obj),
@@ -31,14 +39,14 @@ function deepClone(obj) {
 }
 ```
 
-* 4.数组去重
+## 数组去重
 ```JavaScript
 function unique (arr) {
   return Array.from(new Set(arr))
 }
 ```
 
-* 5.全排列
+## 元素全排列
 ```JavaScript
 function permutate(str) {
   var result = [];
