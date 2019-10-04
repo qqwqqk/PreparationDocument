@@ -1,11 +1,11 @@
 # 协议相关
 
 1. [HTTP 版本](#HTTP-版本)
-2. [请求方式](#请求方式)
-3. [缓存](#缓存)
-4. [前端优化](#前端优化)
-5. [浏览器页面生成](#浏览器页面生成)
-6. [跨域](#跨域)
+2. [HTTP 与 HTTPS](#HTTP-与-HTTPS)
+3. [TCP 与 UDP](#TCP-与-UDP)
+4. [cookie session 与 token](#cookie-session-与-token)
+5. [WebSocket](#WebSocket)
+6. [RESTful API](#RESTful-API)
 
 ## HTTP 版本
 * HTTP 0.9
@@ -79,20 +79,24 @@ HTTP/1.1 的首部带有大量信息,而且每次都要重复发送。HTTP/2.0 �
 服务端推送能把客户端所需要的资源伴随着 index.html 一起发送到客户端,省去了客户端重复请求的步骤。正因为没有发起请求,建立连接等操作,所以静态资源通过服务端推送的方式可以极大地提升速度。
 
 ## HTTP 与 HTTPS
-* HTTP 协议
+* HTTP 协议  
+
 HTTP 协议(HyperText Transfer Protocol,超文本传输协议)是因特网上应用最为广泛的一种网络传输协议,所有的 WWW 文件都必须遵守这个标准.基于 TCP/IP 通信协议来传递数据( HTML 文件,图片文件,查询结果等)
 
-* HTTPS 协议
+* HTTPS 协议  
+
 HTTPS(Hypertext Transfer Protocol Secure,超文本传输安全协议),是以安全为目标的HTTP通道,简单讲是HTTP的安全版.
 HTTP下加入SSL层,HTTPS的安全基础是SSL,因此加密的详细内容就需要SSL.
 
-* SSL 协议
-SSL 协议位于 TCP/IP 协议与各种应用层协议之间,为数据通讯提供安全支持,分为两层:
-1. SSL 记录协议(SSL Record Protocol):
+* SSL 协议  
+
+SSL 协议位于 TCP/IP 协议与各种应用层协议之间,为数据通讯提供安全支持,分为两层:  
+
+1. SSL 记录协议(SSL Record Protocol):  
 
 建立在可靠的传输协议(如TCP)之上,为高层协议提供数据封装、压缩、加密等基本功能的支持.
 
-2. SSL 握手协议(SSL Handshake Protocol):
+2. SSL 握手协议(SSL Handshake Protocol):  
 
 建立在SSL记录协议之上,用于在实际的数据传输开始前,通讯双方进行身份认证、协商加密算法、交换加密密钥等.
 
@@ -116,66 +120,41 @@ SSL 协议位于 TCP/IP 协议与各种应用层协议之间,为数据通讯提�
 
 * TCP报头
 ![TCPheader](TCPheader.svg)
-  源端口号和目的端口号：再加上IP首部的源IP地址和目的IP地址可以唯一确定一个TCP连接
-  数据序号：表示在这个报文段中的第一个数据字节序号
-  确认序号：仅当ACK标志为1时有效。确认号表示期望收到的下一个字节的序号 (这个下面再详细分析)
-  偏移：就是头部长度,有4位,跟IP头部一样,以4字节为单位。最大是60个字节
-  保留位：6位,必须为0
-  6个标志位：
-    URG-紧急指针有效
-    ACK-确认序号有效
-    PSH-接收方应尽快将这个报文交给应用层
-    RST-连接重置
-    SYN-同步序号用来发起一个连接
-    FIN-终止一个连接
-  窗口字段：16位,代表的是窗口的字节容量,也就是TCP的标准窗口最大为2^16-1=65535个字节
-  校验和：源机器基于数据内容计算一个数值,收信息机要与源机器数值 结果完全一样,从而证明数据的有效性。检验和覆盖了整个的TCP报文段：这是一个强制性的字段,一定是由发送端计算和存储,并由接收端进行验证的。
-  紧急指针：是一个正偏移量,与序号字段中的值相加表示紧急数据最后一个字节的序号。TCP的紧急方式是发送端向另一端发送紧急数据的一种方式
-  选项与填充 (必须为4字节整数倍,不够补0)：
-    最常见的可选字段的最长报文大小MSS (Maximum Segment Size),每个连接方通常都在一个报文段中指明这个选项。它指明本端所能接收的最大长度的报文段。
-    该选项如果不设置,默认为536 (20+20+536=576字节的IP数据报)
+  源端口号和目的端口号：再加上IP首部的源IP地址和目的IP地址可以唯一确定一个TCP连接  
+  数据序号：表示在这个报文段中的第一个数据字节序号  
+  确认序号：仅当ACK标志为1时有效。确认号表示期望收到的下一个字节的序号 (这个下面再详细分析)  
+  偏移：就是头部长度,有4位,跟IP头部一样,以4字节为单位。最大是60个字节  
+  保留位：6位,必须为0  
+  6个标志位：  
+    URG-紧急指针有效  
+    ACK-确认序号有效  
+    PSH-接收方应尽快将这个报文交给应用层  
+    RST-连接重置  
+    SYN-同步序号用来发起一个连接  
+    FIN-终止一个连接  
+  窗口字段：16位,代表的是窗口的字节容量,也就是 TCP 的标准窗口最大为2^16-1=65535个字节  
+  校验和：源机器基于数据内容计算一个数值,收信息机要与源机器数值 结果完全一样,从而证明数据的有效性。检验和覆盖了整个的 TCP 报文段：这是一个强制性的字段,一定是由发送端计算和存储,并由接收端进行验证的。  
+  紧急指针：是一个正偏移量,与序号字段中的值相加表示紧急数据最后一个字节的序号。TCP的紧急方式是发送端向另一端发送紧急数据的一种方式  
+  选项与填充 (必须为4字节整数倍,不够补0)：  
+    最常见的可选字段的最长报文大小MSS (Maximum Segment Size),每个连接方通常都在一个报文段中指明这个选项。它指明本端所能接收的最大长度的报文段。  
+    该选项如果不设置,默认为536 (20+20+536=576字节的IP数据报)  
 
 * TCP三次握手与四次挥手
 
-```mermaid
-sequenceDiagram
-    opt SYN
-        Client-    Server: seq=x
-    end
-    opt SYN ACK
-        Server-    Client: seq=y,ack=x+1
-    end
-    opt ACK
-        Client-    Server: ack=y+1
-    end
-```
-  三次握手
-    第一次握手：建立连接时,客户端发送syn包 (syn=j)到服务器,并进入SYN_SENT状态,等待服务器确认；SYN：同步序列编号 (Synchronize Sequence Numbers)。
-    第二次握手：服务器收到syn包,必须确认客户的SYN (ack=j+1),同时自己也发送一个SYN包 (syn=k),即SYN+ACK包,此时服务器进入SYN_RECV状态；
-    第三次握手：客户端收到服务器的SYN+ACK包,向服务器发送确认包ACK(ack=k+1),此包发送完毕,客户端和服务器进入ESTABLISHED (TCP连接成功)状态,完成三次握手。
+* 三次握手
+    1. 第一次握手：建立连接时,客户端发送syn包 (syn=j)到服务器,并进入SYN_SENT状态,等待服务器确认；SYN：同步序列编号 (Synchronize Sequence Numbers)。
+    2. 第二次握手：服务器收到syn包,必须确认客户的SYN (ack=j+1),同时自己也发送一个SYN包 (syn=k),即SYN+ACK包,此时服务器进入SYN_RECV状态；
+    3. 第三次握手：客户端收到服务器的SYN+ACK包,向服务器发送确认包ACK(ack=k+1),此包发送完毕,客户端和服务器进入ESTABLISHED (TCP连接成功)状态,完成三次握手。
 
-```mermaid
-sequenceDiagram
-    opt FIN
-        Client-    Server: seq=u
-    end
-    opt ACK
-        Server-    Client: seq=v,ack=u+1
-    end
-    opt FIN ACK
-        Server-    Client: seq=w,ack=u+1
-    end
-    opt ACK
-        Client-    Server: ack=w+1
-    end
-```
-  四次挥手
-    第一次挥手：Client发送一个FIN,用来关闭Client到Server的数据传送,Client进入FIN_WAIT_1状态。
-    第二次挥手：Server收到FIN后,发送一个ACK给Client,确认序号为收到序号+1 (与SYN相同,一个FIN占用一个序号),Server进入CLOSE_WAIT状态。
-    第三次挥手：Server发送一个FIN,用来关闭Server到Client的数据传送,Server进入LAST_ACK状态。
-    第四次挥手：Client收到FIN后,Client进入TIME_WAIT状态,接着发送一个ACK给Server,确认序号为收到序号+1,Server进入CLOSED状态,完成四次挥手。
 
-* TCP与UDP的区别
+* 四次挥手
+    1. 第一次挥手：Client发送一个FIN,用来关闭Client到Server的数据传送,Client进入FIN_WAIT_1状态。
+    2. 第二次挥手：Server收到FIN后,发送一个ACK给Client,确认序号为收到序号+1 (与SYN相同,一个FIN占用一个序号),Server进入CLOSE_WAIT状态。
+    3. 第三次挥手：Server发送一个FIN,用来关闭Server到Client的数据传送,Server进入LAST_ACK状态。
+    4. 第四次挥手：Client收到FIN后,Client进入TIME_WAIT状态,接着发送一个ACK给Server,确认序号为收到序号+1,Server进入CLOSED状态,完成四次挥手。
+
+* TCP 与 UDP 的区别
+
 | TCP | UDP |
 | --- | --- |
 | 面向连接的 | 无连接的(数据改善前不需要先建立链接) |
@@ -186,38 +165,40 @@ sequenceDiagram
 |可靠性传输|不可靠性传输|
 
 ## cookie session 与 token
-   http是一个无状态协议,session，cookie和token能够使特定域名下所有网页进行数据共享。
+
+http是一个无状态协议,session，cookie和token能够使特定域名下所有网页进行数据共享。
 
 | |类型|存储位置|安全性|使用限制|
-| |--|--|--|--|
+|--|--|--|--|--|
 | cookie|令牌|浏览器端|低|明文存储，安全性低；存储数据量小，且大部分网站有cookie数量限制；需要随HTTP请求发送，网络传输的数据量会变大|
 | session|状态列表|服务端|高|过多的session会占用大量服务器资源，影响性能|
 | token|令牌|浏览器端|高|需要开发者手动添加加密解密过程|
 
 ## WebSocket
 * webSocket概念
-  在WebSocket概念出来之前,如果页面要不停地显示最新的价格,那么必须不停地刷新页面,或者用一段js代码每隔几秒钟发消息询问服务器数据。 
+  在WebSocket概念出来之前,如果页面要不停地显示最新的价格,那么必须不停地刷新页面,或者用一段js代码每隔几秒钟发消息询问服务器数据。   
   而使用WebSocket技术之后,当服务器有了新的数据,会主动通知浏览器。 如当服务端有新的比特币价格之后,浏览器立马接收到消息。
 
 * WebSocket 与 HTTP
-  WebSocket是HTML5中的协议,支持持久连续,HTTP协议不支持持久性连接
-  HTTP1.0和HTTP1.1都不支持持久性的链接,HTTP1.1中的keep-alive,将多个HTTP请求合并为1个
-    HTTP的生命周期通过Request来界定,也就是Request一个Response,那么在HTTP1.0协议中,这次HTTP请求就结束了
-    在HTTP1.1中进行了改进,是的有一个connection：Keep-alive,也就是说,在一个HTTP连接中,可以发送多个Request,接收多个Response;但是必须记住,在HTTP中一个Request只能对应有一个Response,而且这个Response是被动的,不能主动发起。
+  WebSocket是HTML5中的协议,支持持久连续,HTTP协议不支持持久性连接  
+  HTTP1.0和HTTP1.1都不支持持久性的链接,HTTP1.1中的keep-alive,将多个HTTP请求合并为1个  
+  HTTP的生命周期通过Request来界定,也就是Request一个Response,那么在HTTP1.0协议中,这次HTTP请求就结束了  
+  在HTTP1.1中进行了改进,是的有一个connection：Keep-alive,也就是说,在一个HTTP连接中,可以发送多个Request,接收多个Response;但是必须记住,在HTTP中一个Request只能对应有一个Response,而且这个Response是被动的,不能主动发起。  
 
 * WebSocket有什么优点？
-  节约带宽。不停地轮询服务端数据这种方式,使用的是HTTP协议,head信息很大,有效数据占比低, 而使用WebSocket方式,头信息很小,有效数据占比高。
-  无浪费。 轮询方式有可能轮询10次,才碰到服务端数据更新,那么前9次都白轮询了,因为没有拿到变化的数据。 而WebSocket是由服务器主动回发,来的都是新数据。
-  实时性,考虑到服务器压力,使用轮询方式不可能很短的时间间隔,否则服务器压力太多,所以轮询时间间隔都比较长,好几秒,设置十几秒。 而WebSocket是由服务器主动推送过来,实时性是最高的。
+1. 节约带宽。不停地轮询服务端数据这种方式,使用的是HTTP协议,head信息很大,有效数据占比低, 而使用WebSocket方式,头信息很小,有效数据占比高。
+2. 无浪费。 轮询方式有可能轮询10次,才碰到服务端数据更新,那么前9次都白轮询了,因为没有拿到变化的数据。 而WebSocket是由服务器主动回发,来的都是新数据。
+3. 实时性,考虑到服务器压力,使用轮询方式不可能很短的时间间隔,否则服务器压力太多,所以轮询时间间隔都比较长,好几秒,设置十几秒。 而WebSocket是由服务器主动推送过来,实时性是最高的。
 
 
 ## RESTful API
-  对于资源的操作 (CRUD),由HTTP动词 (谓词)表示。
-    GET：从服务器取出资源 (一项或多项)
-    POST：在服务器新建一个资源
-    PUT：在服务器更新资源 (客户端提供改变后的完整资源)
-    PATCH：在服务器更新资源 (客户端提供改变的属性)
-    DELETE：从服务器删除资源
+* 对于资源的操作 (CRUD),由HTTP动词 (谓词)表示。
+  1. GET：从服务器取出资源 (一项或多项)
+  2. POST：在服务器新建一个资源
+  3. PUT：在服务器更新资源 (客户端提供改变后的完整资源)
+  4. PATCH：在服务器更新资源 (客户端提供改变的属性)
+  5. DELETE：从服务器删除资源
+
 |请求类型|请求路径|功能|
 |-|-|-|
 |GET|/books|获取列表|
