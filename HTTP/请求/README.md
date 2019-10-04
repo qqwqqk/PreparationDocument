@@ -87,14 +87,13 @@ L{服务器决策}-->|304|D
 D[从缓存读取]-->E
 ```
 
+```mermaid
+graph LR
+a-->b
+```
+
 ```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
-st->op->cond
-cond(yes)->e
-cond(no)->op
+a-->b
 ```
 
 
