@@ -1,16 +1,24 @@
 # BOM
 
-## 什么是BOM
-* BOM,Browser Object Model,即浏览器对象模型。浏览器页面初始化时,会在内存创建一个全局对象,用来描述当前窗口的属性和状态,这个全局对象被称为浏览器对象模型。
-* 不同于DOM的标准化组织是W3C,JavaScript的语法标准化组织是ECMA,BOM没有官方标准,它最初是Netscape浏览器标准的一部分,也就是说,对于现代浏览器,每个浏览器都有自己的BOM实现方法,所以直接使用BOM会有兼容性问题。
+1. [BOM 概念](#BOM-概念)
+2. [重绘与重排](#重绘与重排)
+3. [winodw](#winodw)
+4. [navigator](#navigator)
+5. [screen](#screen)
+6. [history](#history)
+7. [location](#location)
+
+## BOM 概念
+BOM（Browser Object Model）即浏览器对象模型。浏览器页面初始化时,会在内存创建一个全局对象,用来描述当前窗口的属性和状态,这个全局对象被称为浏览器对象模型。  
+不同于DOM的标准化组织是W3C,JavaScript的语法标准化组织是ECMA,BOM没有官方标准,它最初是Netscape浏览器标准的一部分,也就是说,对于现代浏览器,每个浏览器都有自己的BOM实现方法,所以直接使用BOM会有兼容性问题。
 
 ![BOM](BOM.svg)
 
-window对象是BOM的顶层(核心)对象,不是JS对象,所有对象都是通过它延伸出来的,也可以称为window的子对象。
+window对象是BOM的顶层(核心)对象,不是JS对象,所有对象都是通过它延伸出来的,也可以称为window的子对象。  
 JavaScript是通过访问BOM对象来访问、控制、修改客户端(浏览器),由于BOM的window包含了document,window对象的属性和方法是直接可以使用而且被感知的,因此可以直接使用window对象的document属性,通过document属性就可以访问、检索、修改XHTML文档内容与结构
-因为document对象又是DOM(DocumentObjectModel)模型的根节点。可以说,BOM包含了DOM(文档对象模型),浏览器提供出来给予访问的是BOM对象,从BOM对象再访问到DOM对象,从而js可以操作浏览器以及浏览器读取到的文档。
+因为document对象又是DOM(DocumentObjectModel)模型的根节点。可以说,BOM包含了DOM(文档对象模型),浏览器提供出来给予访问的是BOM对象,从BOM对象再访问到DOM对象,从而js可以操作浏览器以及浏览器读取到的文档。  
 
-* BOM主要功能
+BOM主要功能包括：
 1. 弹出新浏览器窗口的能力；
 2. 移动、关闭和更改浏览器窗口大小的能力；
 3. 可提供WEB浏览器详细信息的导航对象；
@@ -21,64 +29,57 @@ JavaScript是通过访问BOM对象来访问、控制、修改客户端(浏览器
 
 ## 重绘与重排
 1. document.write和innerHTML的区别
->document.write 重排整个页面
->innerHTML 重绘页面的一部分
-2. 浏览器运行机制
->构建DOM树（parse）
->>渲染引擎解析HTML文档，首先将标签转换成DOM树中的DOM node（包括js生成的标签）生成内容树（Content Tree/DOM Tree）；
->构建渲染树（construct）：
->>解析对应的CSS样式文件信息（包括js生成的样式和外部css文件），而这些文件信息以及HTML中可见的指令（如<b></b>），构建渲染树（Rendering Tree/Frame Tree）；
->布局渲染树（reflow/layout）：
->>从根节点递归调用，计算每一个元素的大小、位置等，给出每个节点所应该在屏幕上出现的精确坐标；
->绘制渲染树（paint/repaint）：
->>遍历渲染树，使用UI后端层来绘制每个节点。
+|方法|描述|
+|-|-|
+|document.write|重排整个页面|
+|innerHTML| 重绘页面的一部分 |
 
->重绘（repaint或redraw）：
->>当盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来之后，浏览器便把这些原色都按照各自的特性绘制一遍，将内容呈现在页面上。重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观。
->触发重绘的条件：
->>改变元素外观属性。如：color，background-color等。
+2. 浏览器运行
+|阶段|描述|
+|-|-|
+|构建DOM树（parse）|渲染引擎解析HTML文档，首先将标签转换成DOM树中的DOM node（包括js生成的标签）生成内容树（Content Tree/DOM Tree）|
+|构建渲染树（construct）| 解析对应的CSS样式文件信息（包括js生成的样式和外部css文件），而这些文件信息以及HTML中可见的指令（如`<b></b>`），构建渲染树（Rendering Tree/Frame Tree） |
+|布局渲染树（reflow/layout）|从根节点递归调用，计算每一个元素的大小、位置等，给出每个节点所应该在屏幕上出现的精确坐标|
+|绘制渲染树（paint/repaint）|遍历渲染树，使用UI后端层来绘制每个节点|
 
->重排（重构/回流/reflow）：
->>当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建, 这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候。
->触发重排的条件：
->>任何页面布局和几何属性的改变都会触发重排，比如：
->>>页面渲染初始化；(无法避免)
->>>添加或删除可见的DOM元素；
->>>元素位置的改变，或者使用动画；
->>>元素尺寸的改变——大小，外边距，边框；
->>>浏览器窗口尺寸的变化（resize事件发生时）；
->>>填充内容的改变，比如文本的改变或图片大小改变而引起的计算值宽度和高度的改变；
->>>读取某些元素属性：（offsetLeft/Top/Height/Width,　clientTop/Left/Width/Height,　scrollTop/Left/Width/Height,　width/height,　getComputedStyle(),　currentStyle(IE)　)
+3. 重绘与重排对比
+重排必定会引发重绘，但重绘不一定会引发重排
 
->重绘和重排的关系：
->>重排必定会引发重绘，但重绘不一定会引发重排。
->重绘发生的情况：
->>重绘发生在元素的可见的外观被改变，但并没有影响到布局的时候。比如，仅修改DOM元素的字体颜色（只有Repaint，因为不需要调整布局）
->重绘重排的代价：
->>耗时，导致浏览器卡慢。
+| |重绘|重排|
+|-|-|-|
+|描述|当盒子的位置、大小以及其他属性，例如颜色、字体大小等都确定下来之后，浏览器便把这些原色都按照各自的特性绘制一遍，将内容呈现在页面上。重绘是指一个元素外观的改变所触发的浏览器行为，浏览器会根据元素的新属性重新绘制，使元素呈现新的外观|当渲染树中的一部分(或全部)因为元素的规模尺寸，布局，隐藏等改变而需要重新构建, 这就称为回流(reflow)。每个页面至少需要一次回流，就是在页面第一次加载的时候|
+|触发条件|改变元素外观属性。如：color，background-color等。|任何页面布局和几何属性的改变都会触发重排，比如：  
+* 页面渲染初始化；(无法避免)
+* 添加或删除可见的DOM元素；
+* 元素位置的改变，或者使用动画；
+* 元素尺寸的改变——大小，外边距，边框；
+* 浏览器窗口尺寸的变化（resize事件发生时）；
+* 填充内容的改变，比如文本的改变或图片大小改变而引起的计算值宽度和高度的改变；
+* 读取某些元素属性：（offsetLeft/Top/Height/Width,　clientTop/Left/Width/Height,　scrollTop/Left/Width/Height,　width/height,　getComputedStyle(),　currentStyle(IE)　)|
 
->优化方法：
->>浏览器自己的优化：
->>浏览器会维护1个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会flush队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。
->>我们要注意的优化：
->>我们要减少重绘和重排就是要减少对渲染树的操作，则我们可以合并多次的DOM和样式的修改。并减少对style样式的请求。
->>>直接改变元素的className
->>>display：none；先设置元素为display：none；然后进行页面布局等操作；设置完成后将元素设置为display：block；这样的话就只引发两次重绘和重排；
->>>不要经常访问浏览器的flush队列属性；如果一定要访问，可以利用缓存。将访问的值存储起来，接下来使用就不会再引发回流；
->>>使用cloneNode(true or false) 和 replaceChild 技术，引发一次回流和重绘；
->>>将需要多次重排的元素，position属性设为absolute或fixed，元素脱离了文档流，它的变化不会影响到其他元素；
->>>如果需要创建多个DOM节点，可以使用DocumentFragment创建完后一次性的加入document；
->>>尽量不要使用table布局。
+4. 优化方法：
+* 浏览器优化：
+浏览器会维护1个队列，把所有会引起回流、重绘的操作放入这个队列，等队列中的操作到了一定的数量或者到了一定的时间间隔，浏览器就会flush队列，进行一个批处理。这样就会让多次的回流、重绘变成一次回流重绘。
+
+* 设计的优化：
+减少重绘和重排就是要减少对渲染树的操作，可以合并多次的DOM和样式的修改，并减少对style样式的请求。
+>直接改变元素的className；  
+>display：none；先设置元素为display：none；然后进行页面布局等操作；设置完成后将元素设置为display：block；这样的话就只引发两次重绘和重排；  
+>不要经常访问浏览器的flush队列属性；如果一定要访问，可以利用缓存。将访问的值存储起来，接下来使用就不会再引发回流；  
+>使用cloneNode(true or false) 和 replaceChild 技术，引发一次回流和重绘；  
+>将需要多次重排的元素，position属性设为absolute或fixed，元素脱离了文档流，它的变化不会影响到其他元素；  
+>如果需要创建多个DOM节点，可以使用DocumentFragment创建完后一次性的加入document；  
+>尽量不要使用table布局。
 
 ## winodw
-* window对象集合
+1. window对象集合
  | 集合 | 描述 | 
  | --- | --- | 
  | frames[] | 返回窗口中所有命名的框架。 | 
 
->该集合是 Window 对象的数组，每个 Window 对象在窗口中含有一个框架或 < iframe >。属性 frames.length 存放数组 frames[] 中含有的元素个数。注意，frames[] 数组中引用的框架可能还包括框架，它们自己也具有 frames[] 数组。
+该集合是 Window 对象的数组，每个 Window 对象在窗口中含有一个框架或 `<iframe>`。属性 frames.length 存放数组 frames[] 中含有的元素个数。注意，frames[] 数组中引用的框架可能还包括框架，它们自己也具有 frames[] 数组。
 
-* window对象属性
+2. window对象属性
  | 属性 | 描述 | 
  | --- | --- | 
  | closed | 返回窗口是否已被关闭。 | 
@@ -103,7 +104,7 @@ JavaScript是通过访问BOM对象来访问、控制、修改客户端(浏览器
  | top | 返回最顶层的先辈窗口。 | 
  | window | window属性等价于self属性，它包含了对窗口自身的引用。 | 
 
-* window对象方法
+3. window对象方法
  | 方法 | 描述 | 
  | --- | --- | 
  | alert() | 显示带有一段消息和一个确认按钮的警告框。 | 
@@ -127,7 +128,7 @@ JavaScript是通过访问BOM对象来访问、控制、修改客户端(浏览器
  | setTimeout() | 在指定的毫秒数后调用函数或计算表达式。 | 
 
 ## navigator 
-* navigator 对象属性
+1. navigator 对象属性
  | 属性 | 描述 | 
  | --- | --- | 
  | appCodeName | 返回浏览器的代码名。 | 
@@ -143,14 +144,14 @@ JavaScript是通过访问BOM对象来访问、控制、修改客户端(浏览器
  | userAgent | 返回由客户机发送服务器的 user-agent 头部的值。 | 
  | userLanguage | 返回 OS 的自然语言设置。 | 
 
-* navigator 对象方法
+2. navigator 对象方法
  | 方法 | 描述 | 
  | --- | --- | 
  | javaEnabled() | 规定浏览器是否启用 Java。 | 
  | taintEnabled() | 规定浏览器是否启用数据污点 (data tainting)。 | 
 
 ## screen 
-* screen 对象属性
+screen 对象属性
  | 属性 | 描述 | 
  | --- | --- | 
  | availHeight | 返回显示屏幕的高度 (除 Windows 任务栏之外)。 | 
@@ -168,12 +169,12 @@ JavaScript是通过访问BOM对象来访问、控制、修改客户端(浏览器
  | width | 返回显示器屏幕的宽度。 | 
 
 ## history 
-* history 对象属性
+1. history 对象属性
  | 属性 | 描述 | 
  | --- | --- | 
  | length | 返回浏览器历史列表中的 URL 数量。 | 
 
-* history 对象方法
+2. history 对象方法
  | 属性 | 方法 | 
  | --- | --- | 
  | back() | 加载 history 列表中的前一个 URL。 | 
@@ -181,7 +182,7 @@ JavaScript是通过访问BOM对象来访问、控制、修改客户端(浏览器
  | go() | 加载 history 列表中的某个具体页面。 | 
 
 ## location 
-* location 对象属性
+1. location 对象属性
  | 属性 | 描述 | 
  | --- | --- | 
  | hash | 设置或返回从井号 (#) 开始的 URL（锚）。 | 
@@ -193,7 +194,7 @@ JavaScript是通过访问BOM对象来访问、控制、修改客户端(浏览器
  | protocol | 设置或返回当前 URL 的协议。 | 
  | search | 设置或返回从问号 (?) 开始的 URL（查询部分）。 | 
 
-* location 对象属性
+2. location 对象属性
  | 属性 | 方法 | 
  | --- | --- | 
  | assign() | 加载新的文档。 | 

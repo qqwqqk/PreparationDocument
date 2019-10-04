@@ -7,12 +7,16 @@
 
 ## CSS 盒模型
 1. IE 盒模型
+
 ![IEbox](IEbox.svg)
+
 width表示 content + padding + border三个部分的宽度和,
 盒子模型宽度为 width  
 
 2. W3C 标准盒模型
+
 ![W3Cbox](W3Cbox.svg)
+
 width表示 content 部分的宽度,
 盒子模型宽度为 border-left + padding-left + width + padding-right + border-right  
 

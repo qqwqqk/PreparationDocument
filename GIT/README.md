@@ -25,8 +25,8 @@ git remote rm <origin>
 ## git sync
 远程同步相关的 git 命令
 ```bash
-git fetch <origin> <originbranch>
-git pull <origin> <originbranch>:<localbranch>
+git fetch origin <originbranch>
+git pull origin <originbranch>:<localbranch>
 ```
 
 ## git submit
@@ -34,7 +34,7 @@ git pull <origin> <originbranch>:<localbranch>
 ```bash
 git add .
 git commit -m 'message'
-git push <origin> <localbranch>:<originbranch>
+git push origin <localbranch>:<originbranch>
 ```
 
 ## git undo
@@ -62,5 +62,5 @@ git push <origin> --delete <originbranch>
 git checkout <branchname>
 git checkout -b <branchname>
 
-git merge <tagbranch>
+git merge <targetbranch>
 ```
